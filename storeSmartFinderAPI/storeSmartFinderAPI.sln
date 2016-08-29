@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "storeSmartFinderAPI", "stor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "storeSmartFinderAPI.Tests", "storeSmartFinderAPI.Tests\storeSmartFinderAPI.Tests.csproj", "{91F7F864-C4C8-4296-ABA0-E79985CBF41F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObtenerDataGoogleMaps", "ObtenerDataGoogleMaps\ObtenerDataGoogleMaps.csproj", "{04ED6A26-AA93-4E68-872E-A8517B138211}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{91F7F864-C4C8-4296-ABA0-E79985CBF41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91F7F864-C4C8-4296-ABA0-E79985CBF41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F7F864-C4C8-4296-ABA0-E79985CBF41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04ED6A26-AA93-4E68-872E-A8517B138211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04ED6A26-AA93-4E68-872E-A8517B138211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04ED6A26-AA93-4E68-872E-A8517B138211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04ED6A26-AA93-4E68-872E-A8517B138211}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
