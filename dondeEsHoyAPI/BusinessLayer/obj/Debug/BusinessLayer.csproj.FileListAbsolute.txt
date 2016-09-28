@@ -1,0 +1,11 @@
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\DataAccessLayer.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\Entities.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\Entities.pdb
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.xml
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLayer.pdb

@@ -9,7 +9,7 @@ using Entities;
 
 namespace BusinessLayer.BusinessLogic
 {
-    class UsersBusinessLayer
+    public class UsersBusinessLayer
     {
         UsersDAL userDAL = new UsersDAL();
 

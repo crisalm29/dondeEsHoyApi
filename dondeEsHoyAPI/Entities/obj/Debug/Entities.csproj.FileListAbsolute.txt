@@ -1,0 +1,8 @@
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\bin\Debug\Entities.dll.config
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\bin\Debug\Entities.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\bin\Debug\Entities.pdb
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\bin\Debug\EntityFramework.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\bin\Debug\EntityFramework.xml
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\obj\Debug\Entities.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\obj\Debug\Entities.pdb
