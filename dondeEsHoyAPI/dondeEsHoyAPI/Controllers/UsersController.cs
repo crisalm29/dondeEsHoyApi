@@ -15,13 +15,33 @@ namespace dondeEsHoyAPI.Controllers
 
         // POST: api/Users/login
         [Route("login")]
-        public HttpResponseMessage SetPassword(LoginUserModel model)
+        public HttpResponseMessage login(LoginUserModel model)
         {
             UsersBusinessLayer businessObject = new UsersBusinessLayer();
             bool result = businessObject.login(model.email,model.password);
+            string message = (result) ? "Se ha iniciado sesion correctamente." : "Usuario o contraseña invalido.";
+
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result } );
+        }
 
 
-            return Request.CreateResponse(HttpStatusCode.OK, result);
+        // POST: api/Users/login
+        [Route("addUser")]
+        public HttpResponseMessage AddUser(RegisterUserModel model)
+        {
+            UsersBusinessLayer businessObject = new UsersBusinessLayer();
+            bool result = false;
+            string message;
+            try {
+                businessObject.registerUser(model.email, model.password, model.name, model.lastName);
+                result = true;
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            message = (result) ? "Se ha registrado el usuario correctamente." : "Ha ocurrido un error registrando el usuario.";
+
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result });
         }
 
         // GET: api/Users

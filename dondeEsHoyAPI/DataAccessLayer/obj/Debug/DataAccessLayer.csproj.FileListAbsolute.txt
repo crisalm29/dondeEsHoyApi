@@ -8,3 +8,6 @@ D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\EntityFr
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\MySql.Data.dll

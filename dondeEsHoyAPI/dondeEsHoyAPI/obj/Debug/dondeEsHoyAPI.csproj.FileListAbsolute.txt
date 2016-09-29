@@ -17,7 +17,6 @@ D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\dondeEsHoyAPI.pd
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\Antlr3.Runtime.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\BusinessLayer.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\EntityFramework.dll
-D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\EntityFramework.SqlServer.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\Microsoft.AI.Agent.Intercept.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\Microsoft.AI.DependencyCollector.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -75,7 +74,6 @@ D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\System.Web.WebPa
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\System.Web.WebPages.Razor.xml
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\Antlr3.Runtime.pdb
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\EntityFramework.xml
-D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\EntityFramework.SqlServer.xml
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\Microsoft.AspNet.Identity.Core.xml
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\Microsoft.AspNet.Identity.Owin.xml
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
@@ -94,3 +92,5 @@ D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\Entities.pdb
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\obj\Debug\dondeEsHoyAPI.csprojResolveAssemblyReference.cache
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\obj\Debug\dondeEsHoyAPI.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\obj\Debug\dondeEsHoyAPI.pdb
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\MySql.Data.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\MySql.Data.Entity.EF6.dll

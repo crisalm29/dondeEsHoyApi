@@ -9,3 +9,6 @@ D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFram
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLayer.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLayer.pdb
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml

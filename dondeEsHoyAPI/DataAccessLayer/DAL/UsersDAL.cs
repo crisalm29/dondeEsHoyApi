@@ -14,8 +14,14 @@ namespace DataAccessLayer.DAL
         {
             using (var DBContext = new dondeeshoyEntities())
             {
-                DBContext.users.Add(user);
-                DBContext.SaveChanges();
+                try {
+                    DBContext.users.Add(user);
+                    DBContext.SaveChanges();
+                }catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
             }
         }
 
@@ -31,11 +37,17 @@ namespace DataAccessLayer.DAL
 
         public bool login(string email, string password)
         {
+            users result = null;
             using (var DBContext = new dondeeshoyEntities())
             {
-                users result = DBContext.users.Where(user => user.email == email && user.password == password).First();
-                return result != null;
+                try {
+                     result = DBContext.users.Where(user => user.email == email && user.password == password).First();
+                }catch(Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
             }
+            return result != null;
         }
 
         public void modifyUser(users user)

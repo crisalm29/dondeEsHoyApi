@@ -6,3 +6,6 @@ D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\bin\Debug\EntityFramework
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\obj\Debug\Entities.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\obj\Debug\Entities.pdb
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\Entities\bin\Debug\MySql.Data.dll

@@ -18,4 +18,26 @@ namespace dondeEsHoyAPI.Models
         [Display(Name = "password")]
         public string password { get; set; }
     }
+
+    public class RegisterUserModel
+    {
+
+
+        [Required]
+        [Display(Name = "email")]
+        public string email { get; set; }
+
+        [Required]
+        [Display(Name = "name")]
+        public string name { get; set; }
+
+        [Required]
+        [Display(Name = "lastName")]
+        public string lastName { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "password")]
+        public string password { get; set; }
+    }
 }
