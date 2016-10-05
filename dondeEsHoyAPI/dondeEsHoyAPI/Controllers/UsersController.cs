@@ -2,6 +2,7 @@
 using dondeEsHoyAPI.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -14,7 +15,7 @@ namespace dondeEsHoyAPI.Controllers
     {
 
         // POST: api/Users/login
-        [Route("login")]
+        [Route("Users/login")]
         public HttpResponseMessage login(LoginUserModel model)
         {
             UsersBusinessLayer businessObject = new UsersBusinessLayer();
@@ -26,22 +27,29 @@ namespace dondeEsHoyAPI.Controllers
 
 
         // POST: api/Users/login
-        [Route("addUser")]
+        [Route("Users/addUser")]
         public HttpResponseMessage AddUser(RegisterUserModel model)
         {
             UsersBusinessLayer businessObject = new UsersBusinessLayer();
             bool result = false;
+            int resultCode = 0;
             string message;
             try {
                 businessObject.registerUser(model.email, model.password, model.name, model.lastName);
                 result = true;
-            } catch (Exception ex)
+                message = "Se ha registrado el usuario correctamente.";
+                resultCode = 1;
+            } catch (DbUpdateException ex)
             {
+                message = (ex.HResult == -2146233087) ? "Ya existe un usario con ese correo electronico." : "Ha ocurrido un error al guardar el usuario. Error code:" + ex.HResult;
+                resultCode = -1;
                 Console.WriteLine(ex);
+            } catch (Exception)
+            {
+                message = "Error desconocido al crear el usuario.";
+                resultCode = -2;
             }
-            message = (result) ? "Se ha registrado el usuario correctamente." : "Ha ocurrido un error registrando el usuario.";
-
-            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result });
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result , resultCode = resultCode });
         }
 
         // GET: api/Users
