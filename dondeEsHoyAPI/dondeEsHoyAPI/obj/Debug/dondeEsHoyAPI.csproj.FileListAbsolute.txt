@@ -94,3 +94,5 @@ D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\obj\Debug\dondeEsHoy
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\obj\Debug\dondeEsHoyAPI.pdb
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\MySql.Data.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\MySql.Data.Entity.EF6.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\googlePlacesClient.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\dondeEsHoyAPI\bin\googlePlacesClient.pdb

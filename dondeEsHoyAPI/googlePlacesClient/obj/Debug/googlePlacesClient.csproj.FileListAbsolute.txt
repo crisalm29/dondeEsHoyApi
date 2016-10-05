@@ -1,0 +1,7 @@
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\bin\Debug\googlePlacesClient.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\bin\Debug\googlePlacesClient.pdb
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\bin\Debug\Newtonsoft.Json.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\bin\Debug\Newtonsoft.Json.xml
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\obj\Debug\googlePlacesClient.csprojResolveAssemblyReference.cache
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\obj\Debug\googlePlacesClient.dll
+D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\obj\Debug\googlePlacesClient.pdb

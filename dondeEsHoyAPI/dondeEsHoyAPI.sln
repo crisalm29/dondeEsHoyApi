@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{5DD1C70D-8A8E-4AB0-804A-B7BEF5C07FF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "googlePlacesClient", "googlePlacesClient\googlePlacesClient.csproj", "{43DD52F1-A92A-44E3-8D2D-19110B7BC760}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5DD1C70D-8A8E-4AB0-804A-B7BEF5C07FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DD1C70D-8A8E-4AB0-804A-B7BEF5C07FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DD1C70D-8A8E-4AB0-804A-B7BEF5C07FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43DD52F1-A92A-44E3-8D2D-19110B7BC760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43DD52F1-A92A-44E3-8D2D-19110B7BC760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43DD52F1-A92A-44E3-8D2D-19110B7BC760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43DD52F1-A92A-44E3-8D2D-19110B7BC760}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
