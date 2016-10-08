@@ -37,6 +37,8 @@ CREATE TABLE locals (
      establishment MEDIUMINT NOT NULL,
      google_key CHAR(200),
      zone  CHAR(200),
+     tel CHAR(10),
+     email CHAR(45),
      FOREIGN KEY (establishment) references establishments(id),
      PRIMARY KEY (id)
 );
