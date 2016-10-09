@@ -22,7 +22,6 @@ namespace dondeEsHoyAPI.Models
     public class RegisterUserModel
     {
 
-
         [Required]
         [Display(Name = "email")]
         public string email { get; set; }
@@ -39,5 +38,21 @@ namespace dondeEsHoyAPI.Models
         [DataType(DataType.Password)]
         [Display(Name = "password")]
         public string password { get; set; }
+    }
+
+    public class InfoByIdUserModel
+    {
+
+        [Required]
+        [Display(Name = "id")]
+        public int id { get; set; }
+    }
+
+    public class InfoByEmailUserModel
+    {
+
+        [Required]
+        [Display(Name = "email")]
+        public string email { get; set; }
     }
 }

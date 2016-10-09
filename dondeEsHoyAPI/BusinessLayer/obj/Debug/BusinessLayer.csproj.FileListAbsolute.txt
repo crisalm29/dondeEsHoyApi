@@ -12,3 +12,17 @@ D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLa
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\BusinessLayer.dll.config
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\Entities.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\Entities.pdb
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\BusinessLayer\obj\Debug\BusinessLayer.pdb

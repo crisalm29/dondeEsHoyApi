@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Entities;
 
 namespace dondeEsHoyAPI.Controllers
 {
@@ -26,7 +27,7 @@ namespace dondeEsHoyAPI.Controllers
         }
 
 
-        // POST: api/Users/login
+        // POST: api/Users/addUser
         [Route("Users/addUser")]
         public HttpResponseMessage AddUser(RegisterUserModel model)
         {
@@ -50,6 +51,50 @@ namespace dondeEsHoyAPI.Controllers
                 resultCode = -2;
             }
             return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result , resultCode = resultCode });
+        }
+
+        // POST: api/Users/infoById
+        [Route("Users/infoById")]
+        public HttpResponseMessage infoById(InfoByIdUserModel model)
+        {
+            bool valido = false;
+            string message = "No se obtuvo la info.";
+            UsersBusinessLayer businessObject = new UsersBusinessLayer();
+            users user = businessObject.userInfoById(model.id);
+            var result = new { valido= valido,message= message};
+            if (user != null)
+            {
+                valido = true;
+                message = "Se obtuvo la info.";
+                string id = Convert.ToString(user.id);
+                var obj = new { id, user.name, user.password, user.lastName };
+                var result2 = new { valido=valido, message=message, result= obj};
+                return Request.CreateResponse(HttpStatusCode.OK, result2);
+            }
+            
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        // POST: api/Users/infoByEmail
+        [Route("Users/infoByEmail")]
+        public HttpResponseMessage infoByEmail(InfoByEmailUserModel model)
+        {
+            bool valido = false;
+            string message = "No se obtuvo la info.";
+            UsersBusinessLayer businessObject = new UsersBusinessLayer();
+            users user = businessObject.userInfoByEmail(model.email);
+            var result = new { valido = valido, message = message };
+            if (user != null)
+            {
+                valido = true;
+                message = "Se obtuvo la info.";
+                string id = Convert.ToString(user.id);
+                var obj = new { id, user.name, user.password, user.lastName };
+                var result2 = new { valido = valido, message = message, result = obj };
+                return Request.CreateResponse(HttpStatusCode.OK, result2);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
         // GET: api/Users

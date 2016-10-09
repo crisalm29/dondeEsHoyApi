@@ -18,7 +18,7 @@ namespace BusinessLayer.BusinessLogic
             return userDAL.login(email, password);
         }
 
-        public void registerUser(string email, string password, string name,string lastName)
+        public void registerUser(string email, string password, string name, string lastName)
         {
             users newUser = new users()
             {
@@ -31,5 +31,28 @@ namespace BusinessLayer.BusinessLogic
             userDAL.addNewUser(newUser);
         }
 
+        public users userInfoById(int id)
+        {
+            return userDAL.userInfoById(id);
+        }
+
+        public users userInfoByEmail(string email)
+        {
+            return userDAL.userInfoByEmail(email);
+        }
+
+
+        public void modifyUser(string email, string password, string name, string lastName)
+        {
+            users newUser = new users()
+            {
+                name = name,
+                lastName = lastName,
+                password = password,
+                email = email
+            };
+
+            userDAL.modifyUser(newUser);
+        }
     }
 }

@@ -332,6 +332,10 @@
       <Project>{5dd1c70d-8a8e-4ab0-804a-b7bef5c07ff1}</Project>
       <Name>BusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{dfacb51e-785e-4a32-b34d-37ea640c1b97}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\googlePlacesClient\googlePlacesClient.csproj">
       <Project>{43dd52f1-a92a-44e3-8d2d-19110b7bc760}</Project>
       <Name>googlePlacesClient</Name>

@@ -12,11 +12,11 @@ namespace DataAccessLayer.Interfaces
     {
         bool login(string email, string password);
 
-        users getUserInfoById(int id);
-
-        users getUserInfoByEmail(string email);
-
         void addNewUser(users user);
+
+        users userInfoById(int id);
+
+        users userInfoByEmail(string email);
 
         void modifyUser(users user);
     }

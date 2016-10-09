@@ -11,3 +11,16 @@ D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Debug\DataAcce
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
 D:\DEV\dondeEsHoy\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\MySql.Data.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\Entities.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\MySql.Data.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\Entities.pdb
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
