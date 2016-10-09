@@ -18,17 +18,21 @@ CREATE TABLE establishments (
 
 CREATE TABLE establishments_accounts (
      id MEDIUMINT NOT NULL AUTO_INCREMENT,
+	 establishment MEDIUMINT NOT NULL,
      name CHAR(45) NOT NULL,
      password CHAR(45) NOT NULL,
      email CHAR(50) NOT NULL,
+	 FOREIGN KEY (establishment) references establishments(id),
      PRIMARY KEY (id)
 );
 
 CREATE TABLE establishments_accounts_logs (
+	 id MEDIUMINT NOT NULL AUTO_INCREMENT,
      date datetime NOT NULL,
      description text NOT NULL,
      establishments_accounts MEDIUMINT,
-     FOREIGN KEY (establishments_accounts) references establishments_accounts(id)
+     FOREIGN KEY (establishments_accounts) references establishments_accounts(id),
+	 PRIMARY KEY (id)
 );
 
 
@@ -37,8 +41,6 @@ CREATE TABLE locals (
      establishment MEDIUMINT NOT NULL,
      google_key CHAR(200),
      zone  CHAR(200),
-     tel CHAR(10),
-     email CHAR(45),
      FOREIGN KEY (establishment) references establishments(id),
      PRIMARY KEY (id)
 );
@@ -58,10 +60,12 @@ CREATE TABLE promos_events (
 
 
 CREATE TABLE locals_promos_events (
+	id MEDIUMINT NOT NULL AUTO_INCREMENT,
      promo_event MEDIUMINT NOT NULL,
      local MEDIUMINT NOT NULL,
      FOREIGN KEY (local) references locals(id),
-     FOREIGN KEY (promo_event) references promos_events(id)
+     FOREIGN KEY (promo_event) references promos_events(id),
+	 PRIMARY KEY (id)
 );
 
 
@@ -71,15 +75,18 @@ CREATE TABLE users (
      name CHAR(45) NOT NULL,
      password CHAR(45) NOT NULL,
      email CHAR(45) NOT NULL,
+	 lastName CHAR(45) NOT NULL,
      PRIMARY KEY (id)
 );
 
 
 CREATE TABLE users_favorites_establishments (
+	id MEDIUMINT NOT NULL AUTO_INCREMENT,
      user MEDIUMINT NOT NULL,
      establishment MEDIUMINT NOT NULL,
      FOREIGN KEY (establishment) references establishments(id),
-     FOREIGN KEY (user) references users(id)
+     FOREIGN KEY (user) references users(id),
+	 PRIMARY KEY (id)
 );
 
 
