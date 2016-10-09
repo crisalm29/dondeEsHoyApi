@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dondeeshoyModelStoreContainer" CdmEntityContainer="dondeeshoyEntities">
+    <EntitySetMapping Name="establishments">
+      <EntityTypeMapping TypeName="dondeeshoyModel.establishments">
+        <MappingFragment StoreEntitySet="establishments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="establishment_type" ColumnName="establishment_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="establishments_accounts">
+      <EntityTypeMapping TypeName="dondeeshoyModel.establishments_accounts">
+        <MappingFragment StoreEntitySet="establishments_accounts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="establishment" ColumnName="establishment" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="establishments_accounts_logs">
+      <EntityTypeMapping TypeName="dondeeshoyModel.establishments_accounts_logs">
+        <MappingFragment StoreEntitySet="establishments_accounts_logs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="establishments_accounts" ColumnName="establishments_accounts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="establishments_type">
+      <EntityTypeMapping TypeName="dondeeshoyModel.establishments_type">
+        <MappingFragment StoreEntitySet="establishments_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locals">
+      <EntityTypeMapping TypeName="dondeeshoyModel.locals">
+        <MappingFragment StoreEntitySet="locals">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="establishment" ColumnName="establishment" />
+          <ScalarProperty Name="google_key" ColumnName="google_key" />
+          <ScalarProperty Name="zone" ColumnName="zone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locals_promos_events">
+      <EntityTypeMapping TypeName="dondeeshoyModel.locals_promos_events">
+        <MappingFragment StoreEntitySet="locals_promos_events">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="promo_event" ColumnName="promo_event" />
+          <ScalarProperty Name="local" ColumnName="local" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="promos_events">
+      <EntityTypeMapping TypeName="dondeeshoyModel.promos_events">
+        <MappingFragment StoreEntitySet="promos_events">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="due_date" ColumnName="due_date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="establishment" ColumnName="establishment" />
+          <ScalarProperty Name="imagebase64" ColumnName="imagebase64" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="dondeeshoyModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users_favorites_establishments">
+      <EntityTypeMapping TypeName="dondeeshoyModel.users_favorites_establishments">
+        <MappingFragment StoreEntitySet="users_favorites_establishments">
+          <ScalarProperty Name="user" ColumnName="user" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="establishment" ColumnName="establishment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

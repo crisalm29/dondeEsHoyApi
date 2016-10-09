@@ -1,0 +1,13 @@
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\DataAccessLayer.dll.config
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\Entities.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\EntityFramework.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\MySql.Data.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\Entities.pdb
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\EntityFramework.xml
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Release\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\DataAccessLayer\obj\Release\DataAccessLayer.pdb

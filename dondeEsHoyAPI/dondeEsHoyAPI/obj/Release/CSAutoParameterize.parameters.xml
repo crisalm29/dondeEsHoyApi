@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="dondeeshoyEntities-Web.config Connection String" description="dondeeshoyEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/dondeEsHoyDB.csdl|res://*/dondeEsHoyDB.ssdl|res://*/dondeEsHoyDB.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=mysql5006.smarterasp.net;user id=a112f7_dondees;password=dondeeshoy1234;database=db_a112f7_dondees&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\kevin\\Desktop\\proyectoGlobales\\dondeEsHoyApi\\dondeEsHoyAPI\\dondeEsHoyAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='dondeeshoyEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="DefaultConnection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\kevin\\Desktop\\proyectoGlobales\\dondeEsHoyApi\\dondeEsHoyAPI\\dondeEsHoyAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>
