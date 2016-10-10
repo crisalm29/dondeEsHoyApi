@@ -53,7 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\PromosEventsDAL.cs" />
     <Compile Include="DAL\UsersDAL.cs" />
+    <Compile Include="Interfaces\IEstablishmentsDAL.cs" />
+    <Compile Include="Interfaces\ILocals.cs" />
+    <Compile Include="Interfaces\IPromosEvents.cs" />
     <Compile Include="Interfaces\IUsersDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
