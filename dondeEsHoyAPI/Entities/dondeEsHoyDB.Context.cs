@@ -30,7 +30,6 @@ namespace Entities
         public DbSet<establishments_accounts_logs> establishments_accounts_logs { get; set; }
         public DbSet<establishments_type> establishments_type { get; set; }
         public DbSet<locals> locals { get; set; }
-        public DbSet<locals_promos_events> locals_promos_events { get; set; }
         public DbSet<promos_events> promos_events { get; set; }
         public DbSet<users> users { get; set; }
         public DbSet<users_favorites_establishments> users_favorites_establishments { get; set; }

@@ -58,7 +58,7 @@
     <Property Name="description" Type="text" Nullable="false" />
     <Property Name="local" Type="mediumint" Nullable="false" />
     <Property Name="imagebase64" Type="text" />
-    <Property Name="is_general" Type="bit" />
+    <Property Name="is_general" Type="mediumint" />
   </EntityType>
   <EntityType Name="users">
     <Key>

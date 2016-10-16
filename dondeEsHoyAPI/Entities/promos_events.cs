@@ -16,7 +16,6 @@ namespace Entities
     {
         public promos_events()
         {
-            this.locals_promos_events = new HashSet<locals_promos_events>();
         }
     
         public int id { get; set; }
@@ -27,10 +26,8 @@ namespace Entities
         public int establishment { get; set; }
         public string imagebase64 { get; set; }
         public int local { get; set; }
-        public Nullable<bool> is_general { get; set; }
+        public int is_general { get; set; }
     
-        public virtual establishments establishments { get; set; }
-        public virtual ICollection<locals_promos_events> locals_promos_events { get; set; }
         public virtual locals locals { get; set; }
     }
 }

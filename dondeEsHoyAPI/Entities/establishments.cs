@@ -18,7 +18,6 @@ namespace Entities
         {
             this.establishments_accounts = new HashSet<establishments_accounts>();
             this.locals = new HashSet<locals>();
-            this.promos_events = new HashSet<promos_events>();
             this.users_favorites_establishments = new HashSet<users_favorites_establishments>();
         }
     
@@ -31,7 +30,6 @@ namespace Entities
         public virtual ICollection<establishments_accounts> establishments_accounts { get; set; }
         public virtual establishments_type establishments_type { get; set; }
         public virtual ICollection<locals> locals { get; set; }
-        public virtual ICollection<promos_events> promos_events { get; set; }
         public virtual ICollection<users_favorites_establishments> users_favorites_establishments { get; set; }
     }
 }

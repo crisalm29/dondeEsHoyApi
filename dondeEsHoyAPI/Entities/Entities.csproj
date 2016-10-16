@@ -86,9 +86,6 @@
     <Compile Include="locals.cs">
       <DependentUpon>dondeEsHoyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="locals_promos_events.cs">
-      <DependentUpon>dondeEsHoyDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="promos_events.cs">
       <DependentUpon>dondeEsHoyDB.tt</DependentUpon>
     </Compile>

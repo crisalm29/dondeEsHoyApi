@@ -8,7 +8,7 @@ CREATE TABLE establishments_type (
 
 CREATE TABLE establishments (
      id MEDIUMINT NOT NULL AUTO_INCREMENT,
-     name CHAR(45) NOT NULL,
+     name CHAR(45) UNIQUE NOT NULL,
      establishment_type MEDIUMINT,
 	 imagebase64 text,
 	 telefono CHAR(20),
@@ -58,7 +58,7 @@ CREATE TABLE promos_events (
      description TEXT NOT NULL,
      local MEDIUMINT NOT NULL,
      imagebase64 text ,
-	 is_general bit,
+	 is_general MEDIUMINT,
      FOREIGN KEY (local) references locals(id),
      PRIMARY KEY (id)
 );

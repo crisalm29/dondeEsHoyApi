@@ -58,7 +58,7 @@ namespace DataAccessLayer.DAL
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.Where(pe => pe.is_general != null).ToList();  
+                    result = DBContext.promos_events.Where(pe => pe.is_general ==1).ToList();  
                 }
                 catch (Exception ex)
                 {
