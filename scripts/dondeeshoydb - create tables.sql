@@ -10,6 +10,8 @@ CREATE TABLE establishments (
      id MEDIUMINT NOT NULL AUTO_INCREMENT,
      name CHAR(45) NOT NULL,
      establishment_type MEDIUMINT,
+	 imagebase64 text,
+	 telefono CHAR(20),
      FOREIGN KEY (establishment_type) references establishments_type(id),
      PRIMARY KEY (id)
 );
@@ -21,7 +23,8 @@ CREATE TABLE establishments_accounts (
 	 establishment MEDIUMINT NOT NULL,
      name CHAR(45) NOT NULL,
      password CHAR(45) NOT NULL,
-     email CHAR(50) NOT NULL,
+     email CHAR(50) UNIQUE NOT NULL,
+	 imagebase64 text,
 	 FOREIGN KEY (establishment) references establishments(id),
      PRIMARY KEY (id)
 );
@@ -41,6 +44,7 @@ CREATE TABLE locals (
      establishment MEDIUMINT NOT NULL,
      google_key CHAR(200),
      zone  CHAR(200),
+	 telefono CHAR(20),
      FOREIGN KEY (establishment) references establishments(id),
      PRIMARY KEY (id)
 );
@@ -52,20 +56,11 @@ CREATE TABLE promos_events (
      start_date datetime NOT NULL,
      due_date datetime NOT NULL,
      description TEXT NOT NULL,
-     establishment MEDIUMINT NOT NULL,
-     imagebase64 text ,
-     FOREIGN KEY (establishment) references establishments(id),
-     PRIMARY KEY (id)
-);
-
-
-CREATE TABLE locals_promos_events (
-	id MEDIUMINT NOT NULL AUTO_INCREMENT,
-     promo_event MEDIUMINT NOT NULL,
      local MEDIUMINT NOT NULL,
+     imagebase64 text ,
+	 is_general bit,
      FOREIGN KEY (local) references locals(id),
-     FOREIGN KEY (promo_event) references promos_events(id),
-	 PRIMARY KEY (id)
+     PRIMARY KEY (id)
 );
 
 
@@ -74,8 +69,9 @@ CREATE TABLE users (
      id MEDIUMINT NOT NULL AUTO_INCREMENT,
      name CHAR(45) NOT NULL,
      password CHAR(45) NOT NULL,
-     email CHAR(45) NOT NULL,
+     email CHAR(45) UNIQUE NOT NULL,
 	 lastName CHAR(45) NOT NULL,
+	 imagebase64 text ,
      PRIMARY KEY (id)
 );
 
