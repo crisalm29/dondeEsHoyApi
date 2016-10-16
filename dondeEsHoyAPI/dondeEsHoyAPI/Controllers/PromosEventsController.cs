@@ -55,14 +55,14 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
-        // POST: api/PromosEvents/promosEventsByEstablishment
-        [Route("PromosEvents/promosEventsByEstablishment")]
-        public HttpResponseMessage promosEventsByEstablishment(PromosEventsByEstablishmentPromosEventsModel model)
+        // POST: api/PromosEvents/generalPromosEvents
+        [Route("PromosEvents/generalPromosEvents")]
+        public HttpResponseMessage generalPromosEvents()
         {
             bool valido = false;
             string message = "No se obtuvo la info.";
             PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
-            dynamic[] promosEvents = businessObject.promosEventsByEstablishment(model.establishment);
+            List<promos_events> promosEvents = businessObject.generalPromosEvents();
             var result = new { valido = valido, message = message };
             if (promosEvents != null)
             {

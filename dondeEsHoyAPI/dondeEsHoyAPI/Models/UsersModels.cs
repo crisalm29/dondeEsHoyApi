@@ -8,7 +8,6 @@ namespace dondeEsHoyAPI.Models
 {
     public class LoginUserModel
     {
-
         [Required]
         [Display(Name = "email")]
         public string email { get; set; }
@@ -21,7 +20,6 @@ namespace dondeEsHoyAPI.Models
 
     public class RegisterUserModel
     {
-
         [Required]
         [Display(Name = "email")]
         public string email { get; set; }
@@ -33,6 +31,10 @@ namespace dondeEsHoyAPI.Models
         [Required]
         [Display(Name = "lastName")]
         public string lastName { get; set; }
+
+        [Required]
+        [Display(Name = "imagebase64")]
+        public string imagebase64 { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

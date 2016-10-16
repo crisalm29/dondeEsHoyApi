@@ -1,26 +1,42 @@
-﻿using System;
+﻿using DataAccessLayer.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccessLayer.Interfaces;
 using Entities;
 
 namespace DataAccessLayer.DAL
 {
-    public class PromosEventsDAL: IPromosEvents
+    public class EstablishmentsDAL : IEstablishmentsDAL
     {
-
-        public List<promos_events> promosEventsToday()
+        public void addNewEstablishment(establishments establishment)
         {
-            List<promos_events> result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.establishments.Add(establishment);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
+
+        }
+
+        public establishments establishmentInfoById(int id)
+        {
+            establishments result = null;
             using (var DBContext = new dondeeshoyEntities())
             {
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.Where(pe => pe.start_date.Date == DateTime.Today.Date).ToList();  //pe => pe.start_date.Date == DateTime.Today.Date pe => System.Data.Entity.Core.Objects.EntityFunctions.TruncateTime(pe.start_date.Date) == DateTime.Today.Date
-
+                    result = DBContext.establishments.Where(establishment => establishment.id == id).First();
                 }
                 catch (Exception ex)
                 {
@@ -30,16 +46,15 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
-
-        public List<promos_events> promosEventsThisMoth()
+        public establishments establishmentInfoByName(string name)
         {
-            List<promos_events> result = null;
+            establishments result = null;
             using (var DBContext = new dondeeshoyEntities())
             {
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.Where(pe => pe.start_date.Month == DateTime.Now.Month && pe.start_date.Year == DateTime.Now.Year).ToList(); 
+                    result = DBContext.establishments.Where(establishment => establishment.name == name).First();
                 }
                 catch (Exception ex)
                 {
@@ -49,26 +64,7 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
-
-        public List<promos_events> generalPromosEvents()
-        {
-            List<promos_events> result = null;
-            using (var DBContext = new dondeeshoyEntities())
-            {
-                try
-                {
-                    DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.Where(pe => pe.is_general != null).ToList();  
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            }
-            return result;
-        }
-
-        public List<promos_events> promosEventsThisWeek()
+        public void modifyEstablishment(establishments user)
         {
             throw new NotImplementedException();
         }

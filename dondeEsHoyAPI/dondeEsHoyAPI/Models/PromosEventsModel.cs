@@ -9,7 +9,6 @@ namespace dondeEsHoyAPI.Models
 
     public class PromosEventsByEstablishmentPromosEventsModel
     {
-
         [Required]
         [Display(Name = "establishment")]
         public int establishment { get; set; }

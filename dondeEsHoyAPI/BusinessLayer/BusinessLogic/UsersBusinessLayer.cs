@@ -18,14 +18,15 @@ namespace BusinessLayer.BusinessLogic
             return userDAL.login(email, password);
         }
 
-        public void registerUser(string email, string password, string name, string lastName)
+        public void registerUser(string email, string password, string name, string lastName, string imagebase64)
         {
             users newUser = new users()
             {
                 name = name,
                 lastName = lastName,
                 password = password,
-                email = email
+                email = email,
+                imagebase64= imagebase64
             };
 
             userDAL.addNewUser(newUser);

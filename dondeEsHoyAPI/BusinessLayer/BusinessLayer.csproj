@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\EstablishmentsBusinessLayer.cs" />
     <Compile Include="BusinessLogic\PromosEventsBusinessLayer.cs" />
     <Compile Include="BusinessLogic\UsersBusinessLayer.cs" />
     <Compile Include="Class1.cs" />

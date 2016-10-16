@@ -22,12 +22,12 @@ namespace BusinessLayer.BusinessLogic
             return promosEventsDAL.promosEventsThisMoth();
         }
 
-        public dynamic[] promosEventsByEstablishment(int establishment)
+        public List<promos_events> generalPromosEvents()
         {
-            return promosEventsDAL.promosEventsByEstablishment(establishment);
+            return promosEventsDAL.generalPromosEvents();
         }
 
-        public dynamic[] promosEventsThisWeek()
+        public List<promos_events> promosEventsThisWeek()
         {
             return promosEventsDAL.promosEventsThisWeek();
         }

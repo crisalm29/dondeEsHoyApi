@@ -14,7 +14,6 @@ namespace dondeEsHoyAPI.Controllers
 {
     public class UsersController : ApiController
     {
-
         // POST: api/Users/login
         [Route("Users/login")]
         public HttpResponseMessage login(LoginUserModel model)
@@ -36,7 +35,7 @@ namespace dondeEsHoyAPI.Controllers
             int resultCode = 0;
             string message;
             try {
-                businessObject.registerUser(model.email, model.password, model.name, model.lastName);
+                businessObject.registerUser(model.email, model.password, model.name, model.lastName, model.imagebase64);
                 result = true;
                 message = "Se ha registrado el usuario correctamente.";
                 resultCode = 1;
@@ -66,8 +65,6 @@ namespace dondeEsHoyAPI.Controllers
             {
                 valido = true;
                 message = "Se obtuvo la info.";
-                string id = Convert.ToString(user.id);
-                var obj = new { id, user.name, user.password, user.lastName };
                 var result2 = new { valido=valido, message=message, result= user};
                 return Request.CreateResponse(HttpStatusCode.OK, result2);
             }
@@ -88,8 +85,6 @@ namespace dondeEsHoyAPI.Controllers
             {
                 valido = true;
                 message = "Se obtuvo la info.";
-                string id = Convert.ToString(user.id);
-                var obj = new { id, user.name, user.password, user.lastName };
                 var result2 = new { valido = valido, message = message, result = user };
                 return Request.CreateResponse(HttpStatusCode.OK, result2);
             }
