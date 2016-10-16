@@ -25,6 +25,8 @@ namespace Entities
         public int id { get; set; }
         public string name { get; set; }
         public Nullable<int> establishment_type { get; set; }
+        public string imagebase64 { get; set; }
+        public string telefono { get; set; }
     
         public virtual ICollection<establishments_accounts> establishments_accounts { get; set; }
         public virtual establishments_type establishments_type { get; set; }

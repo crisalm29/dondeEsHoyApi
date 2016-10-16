@@ -17,14 +17,17 @@ namespace Entities
         public locals()
         {
             this.locals_promos_events = new HashSet<locals_promos_events>();
+            this.promos_events = new HashSet<promos_events>();
         }
     
         public int id { get; set; }
         public int establishment { get; set; }
         public string google_key { get; set; }
         public string zone { get; set; }
+        public string telefono { get; set; }
     
         public virtual establishments establishments { get; set; }
         public virtual ICollection<locals_promos_events> locals_promos_events { get; set; }
+        public virtual ICollection<promos_events> promos_events { get; set; }
     }
 }

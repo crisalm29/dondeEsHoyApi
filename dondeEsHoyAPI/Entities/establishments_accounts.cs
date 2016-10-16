@@ -24,6 +24,7 @@ namespace Entities
         public string name { get; set; }
         public string password { get; set; }
         public string email { get; set; }
+        public string imagebase64 { get; set; }
     
         public virtual establishments establishments { get; set; }
         public virtual ICollection<establishments_accounts_logs> establishments_accounts_logs { get; set; }

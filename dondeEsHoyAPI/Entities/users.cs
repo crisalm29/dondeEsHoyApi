@@ -24,6 +24,7 @@ namespace Entities
         public string password { get; set; }
         public string email { get; set; }
         public string lastName { get; set; }
+        public string imagebase64 { get; set; }
     
         public virtual ICollection<users_favorites_establishments> users_favorites_establishments { get; set; }
     }

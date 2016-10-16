@@ -4,6 +4,8 @@
     <EntitySetMapping Name="establishments">
       <EntityTypeMapping TypeName="dondeeshoyModel.establishments">
         <MappingFragment StoreEntitySet="establishments">
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="imagebase64" ColumnName="imagebase64" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="establishment_type" ColumnName="establishment_type" />
@@ -13,6 +15,7 @@
     <EntitySetMapping Name="establishments_accounts">
       <EntityTypeMapping TypeName="dondeeshoyModel.establishments_accounts">
         <MappingFragment StoreEntitySet="establishments_accounts">
+          <ScalarProperty Name="imagebase64" ColumnName="imagebase64" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="establishment" ColumnName="establishment" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -42,6 +45,7 @@
     <EntitySetMapping Name="locals">
       <EntityTypeMapping TypeName="dondeeshoyModel.locals">
         <MappingFragment StoreEntitySet="locals">
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="establishment" ColumnName="establishment" />
           <ScalarProperty Name="google_key" ColumnName="google_key" />
@@ -49,24 +53,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="locals_promos_events">
-      <EntityTypeMapping TypeName="dondeeshoyModel.locals_promos_events">
-        <MappingFragment StoreEntitySet="locals_promos_events">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="promo_event" ColumnName="promo_event" />
-          <ScalarProperty Name="local" ColumnName="local" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="promos_events">
       <EntityTypeMapping TypeName="dondeeshoyModel.promos_events">
         <MappingFragment StoreEntitySet="promos_events">
+          <ScalarProperty Name="is_general" ColumnName="is_general" />
+          <ScalarProperty Name="local" ColumnName="local" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="start_date" ColumnName="start_date" />
           <ScalarProperty Name="due_date" ColumnName="due_date" />
           <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="establishment" ColumnName="establishment" />
           <ScalarProperty Name="imagebase64" ColumnName="imagebase64" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -74,6 +70,7 @@
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="dondeeshoyModel.users">
         <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="imagebase64" ColumnName="imagebase64" />
           <ScalarProperty Name="lastName" ColumnName="lastName" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />

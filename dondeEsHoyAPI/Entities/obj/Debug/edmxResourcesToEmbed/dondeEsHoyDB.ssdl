@@ -7,6 +7,8 @@
     <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="establishment_type" Type="mediumint" />
+    <Property Name="imagebase64" Type="text" />
+    <Property Name="telefono" Type="char" MaxLength="20" />
   </EntityType>
   <EntityType Name="establishments_accounts">
     <Key>
@@ -17,6 +19,7 @@
     <Property Name="name" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="password" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="email" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="imagebase64" Type="text" />
   </EntityType>
   <EntityType Name="establishments_accounts_logs">
     <Key>
@@ -42,14 +45,7 @@
     <Property Name="establishment" Type="mediumint" Nullable="false" />
     <Property Name="google_key" Type="char" MaxLength="200" />
     <Property Name="zone" Type="char" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="locals_promos_events">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="promo_event" Type="mediumint" Nullable="false" />
-    <Property Name="local" Type="mediumint" Nullable="false" />
+    <Property Name="telefono" Type="char" MaxLength="20" />
   </EntityType>
   <EntityType Name="promos_events">
     <Key>
@@ -60,8 +56,9 @@
     <Property Name="start_date" Type="datetime" Precision="0" Nullable="false" />
     <Property Name="due_date" Type="datetime" Precision="0" Nullable="false" />
     <Property Name="description" Type="text" Nullable="false" />
-    <Property Name="establishment" Type="mediumint" Nullable="false" />
+    <Property Name="local" Type="mediumint" Nullable="false" />
     <Property Name="imagebase64" Type="text" />
+    <Property Name="is_general" Type="bit" />
   </EntityType>
   <EntityType Name="users">
     <Key>
@@ -69,16 +66,17 @@
     </Key>
     <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="char" MaxLength="45" Nullable="false" />
-    <Property Name="lastName" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="password" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="email" Type="char" MaxLength="45" Nullable="false" />
+    <Property Name="lastName" Type="char" MaxLength="45" Nullable="false" />
+    <Property Name="imagebase64" Type="text" />
   </EntityType>
   <EntityType Name="users_favorites_establishments">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="user" Type="mediumint" Nullable="false" />
     <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user" Type="mediumint" Nullable="false" />
     <Property Name="establishment" Type="mediumint" Nullable="false" />
   </EntityType>
   <Association Name="establishments_accounts_ibfk_1">
@@ -129,39 +127,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="locals_promos_events_ibfk_1">
+  <Association Name="promos_events_ibfk_1">
     <End Role="locals" Type="Self.locals" Multiplicity="1" />
-    <End Role="locals_promos_events" Type="Self.locals_promos_events" Multiplicity="*" />
+    <End Role="promos_events" Type="Self.promos_events" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="locals">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="locals_promos_events">
-        <PropertyRef Name="local" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="locals_promos_events_ibfk_2">
-    <End Role="promos_events" Type="Self.promos_events" Multiplicity="1" />
-    <End Role="locals_promos_events" Type="Self.locals_promos_events" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="promos_events">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="locals_promos_events">
-        <PropertyRef Name="promo_event" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="promos_events_ibfk_1">
-    <End Role="establishments" Type="Self.establishments" Multiplicity="1" />
-    <End Role="promos_events" Type="Self.promos_events" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="establishments">
-        <PropertyRef Name="id" />
-      </Principal>
       <Dependent Role="promos_events">
-        <PropertyRef Name="establishment" />
+        <PropertyRef Name="local" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -195,7 +169,6 @@
     <EntitySet Name="establishments_accounts_logs" EntityType="Self.establishments_accounts_logs" Schema="dondeeshoy" store:Type="Tables" />
     <EntitySet Name="establishments_type" EntityType="Self.establishments_type" Schema="dondeeshoy" store:Type="Tables" />
     <EntitySet Name="locals" EntityType="Self.locals" Schema="dondeeshoy" store:Type="Tables" />
-    <EntitySet Name="locals_promos_events" EntityType="Self.locals_promos_events" Schema="dondeeshoy" store:Type="Tables" />
     <EntitySet Name="promos_events" EntityType="Self.promos_events" Schema="dondeeshoy" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dondeeshoy" store:Type="Tables" />
     <EntitySet Name="users_favorites_establishments" EntityType="Self.users_favorites_establishments" Schema="dondeeshoy" store:Type="Tables" />
@@ -215,16 +188,8 @@
       <End Role="establishments" EntitySet="establishments" />
       <End Role="locals" EntitySet="locals" />
     </AssociationSet>
-    <AssociationSet Name="locals_promos_events_ibfk_1" Association="Self.locals_promos_events_ibfk_1">
-      <End Role="locals" EntitySet="locals" />
-      <End Role="locals_promos_events" EntitySet="locals_promos_events" />
-    </AssociationSet>
-    <AssociationSet Name="locals_promos_events_ibfk_2" Association="Self.locals_promos_events_ibfk_2">
-      <End Role="promos_events" EntitySet="promos_events" />
-      <End Role="locals_promos_events" EntitySet="locals_promos_events" />
-    </AssociationSet>
     <AssociationSet Name="promos_events_ibfk_1" Association="Self.promos_events_ibfk_1">
-      <End Role="establishments" EntitySet="establishments" />
+      <End Role="locals" EntitySet="locals" />
       <End Role="promos_events" EntitySet="promos_events" />
     </AssociationSet>
     <AssociationSet Name="users_favorites_establishments_ibfk_1" Association="Self.users_favorites_establishments_ibfk_1">

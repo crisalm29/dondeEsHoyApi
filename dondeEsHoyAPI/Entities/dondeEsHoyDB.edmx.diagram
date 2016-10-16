@@ -23,6 +23,7 @@
         <AssociationConnector Association="dondeeshoyModel.locals_promos_events_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="dondeeshoyModel.locals_promos_events_ibfk_2" ManuallyRouted="false" />
         <AssociationConnector Association="dondeeshoyModel.users_favorites_establishments_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="dondeeshoyModel.promos_events_ibfk_11" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
