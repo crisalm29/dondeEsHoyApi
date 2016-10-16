@@ -22,7 +22,7 @@ namespace dondeEsHoyAPI.Controllers
             bool valido = false;
             string message = "No se obtuvo la info.";
             PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
-            dynamic[] promosEvents = businessObject.promosEventsToday();
+            List<promos_events> promosEvents = businessObject.promosEventsToday();
             var result = new { valido = valido, message = message };
             if (promosEvents != null)
             {
@@ -42,7 +42,7 @@ namespace dondeEsHoyAPI.Controllers
             bool valido = false;
             string message = "No se obtuvo la info.";
             PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
-            dynamic[] promosEvents = businessObject.promosEventsThisMoth();
+            List<promos_events> promosEvents = businessObject.promosEventsThisMoth();
             var result = new { valido = valido, message = message };
             if (promosEvents != null)
             {

@@ -50,6 +50,7 @@ namespace DataAccessLayer.DAL
             {
                 try
                 {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
                     result = DBContext.users.Where(user => user.id == id).First();
                 }
                 catch (Exception ex)

@@ -12,12 +12,12 @@ namespace BusinessLayer.BusinessLogic
     {
         PromosEventsDAL promosEventsDAL = new PromosEventsDAL();
 
-        public dynamic[] promosEventsToday()
+        public List<promos_events> promosEventsToday()
         {
             return promosEventsDAL.promosEventsToday();
         }
 
-        public dynamic[] promosEventsThisMoth()
+        public List<promos_events> promosEventsThisMoth()
         {
             return promosEventsDAL.promosEventsThisMoth();
         }

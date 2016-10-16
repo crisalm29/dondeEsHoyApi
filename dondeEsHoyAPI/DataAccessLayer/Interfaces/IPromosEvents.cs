@@ -9,8 +9,8 @@ namespace DataAccessLayer.Interfaces
 {
     interface IPromosEvents
     {
-        dynamic[] promosEventsToday();
-        dynamic[] promosEventsThisMoth();
+        List<promos_events> promosEventsToday();
+        List<promos_events> promosEventsThisMoth();
         dynamic[] promosEventsByEstablishment(int establishment);
         dynamic[] promosEventsThisWeek();
     }
