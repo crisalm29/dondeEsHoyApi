@@ -90,7 +90,7 @@ namespace dondeEsHoyAPI.Controllers
                 message = "Se obtuvo la info.";
                 string id = Convert.ToString(user.id);
                 var obj = new { id, user.name, user.password, user.lastName };
-                var result2 = new { valido = valido, message = message, result = obj };
+                var result2 = new { valido = valido, message = message, result = user };
                 return Request.CreateResponse(HttpStatusCode.OK, result2);
             }
 

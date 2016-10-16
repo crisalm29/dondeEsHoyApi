@@ -67,6 +67,7 @@ namespace DataAccessLayer.DAL
             using (var DBContext = new dondeeshoyEntities()) {
                 try
                 {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
                     result = DBContext.users.Where(user => user.email == email).First();
                 }
                 catch (Exception ex)

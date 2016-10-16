@@ -42,7 +42,6 @@ namespace dondeEsHoyAPI.Models
 
     public class InfoByIdUserModel
     {
-
         [Required]
         [Display(Name = "id")]
         public int id { get; set; }

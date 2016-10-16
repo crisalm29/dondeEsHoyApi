@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Entities
 {
@@ -10,7 +11,7 @@ namespace Entities
     {
         public void test()
         {
-            using (var context = new dondeeshoyEntities())
+            using (var DBContext = new dondeeshoyEntities())
             {
 
             }
