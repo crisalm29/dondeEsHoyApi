@@ -43,14 +43,15 @@ namespace BusinessLayer.BusinessLogic
         }
 
 
-        public void modifyUser(string email, string password, string name, string lastName)
+        public void modifyUser(string email, string password, string name, string lastName, string imagebase64)
         {
             users newUser = new users()
             {
                 name = name,
                 lastName = lastName,
                 password = password,
-                email = email
+                email = email,
+                imagebase64 = imagebase64
             };
 
             userDAL.modifyUser(newUser);

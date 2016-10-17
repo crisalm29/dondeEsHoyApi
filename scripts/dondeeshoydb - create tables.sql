@@ -22,6 +22,7 @@ CREATE TABLE establishments_accounts (
      id MEDIUMINT NOT NULL AUTO_INCREMENT,
 	 establishment MEDIUMINT NOT NULL,
      name CHAR(45) NOT NULL,
+	 lastName CHAR(45) NOT NULL,
      password CHAR(45) NOT NULL,
      email CHAR(50) UNIQUE NOT NULL,
 	 imagebase64 text,

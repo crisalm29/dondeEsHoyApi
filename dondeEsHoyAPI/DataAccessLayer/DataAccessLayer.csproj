@@ -53,9 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\EstablishmentsAccountsDAL.cs" />
     <Compile Include="DAL\EstablishmentsDAL.cs" />
     <Compile Include="DAL\PromosEventsDAL.cs" />
     <Compile Include="DAL\UsersDAL.cs" />
+    <Compile Include="Interfaces\IEstablishmentsAccounts.cs" />
     <Compile Include="Interfaces\IEstablishmentsDAL.cs" />
     <Compile Include="Interfaces\ILocals.cs" />
     <Compile Include="Interfaces\IPromosEvents.cs" />

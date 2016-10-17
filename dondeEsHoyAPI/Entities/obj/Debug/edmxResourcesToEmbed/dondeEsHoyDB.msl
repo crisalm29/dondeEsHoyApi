@@ -19,6 +19,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="establishment" ColumnName="establishment" />
           <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>

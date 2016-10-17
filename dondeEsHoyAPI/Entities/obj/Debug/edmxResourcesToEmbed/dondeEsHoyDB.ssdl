@@ -17,6 +17,7 @@
     <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="establishment" Type="mediumint" Nullable="false" />
     <Property Name="name" Type="char" MaxLength="45" Nullable="false" />
+    <Property Name="lastName" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="password" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="email" Type="char" MaxLength="50" Nullable="false" />
     <Property Name="imagebase64" Type="text" />
