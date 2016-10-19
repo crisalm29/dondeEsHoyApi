@@ -7,7 +7,7 @@ using Entities;
 
 namespace DataAccessLayer.Interfaces
 {
-    interface IEstablishmentsDAL
+    interface IEstablishments
     {
         void addNewEstablishment(establishments establishment);
         establishments establishmentInfoById(int id);

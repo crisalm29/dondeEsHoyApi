@@ -8,7 +8,7 @@ using Entities;
 
 namespace DataAccessLayer.DAL
 {
-    public class EstablishmentsDAL : IEstablishmentsDAL
+    public class EstablishmentsDAL : IEstablishments
     {
         public void addNewEstablishment(establishments establishment)
         {

@@ -244,6 +244,7 @@
     <Compile Include="Controllers\EstablishmentsController.cs" />
     <Compile Include="Controllers\GooglePlacesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocalsController.cs" />
     <Compile Include="Controllers\PromosEventsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -253,6 +254,7 @@
     <Compile Include="Models\EstablishmentsModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LatLngModel.cs" />
+    <Compile Include="Models\LocalsModels.cs" />
     <Compile Include="Models\PromosEventsModel.cs" />
     <Compile Include="Models\UsersModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -324,6 +326,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\EstablishmentsAccounts\" />
     <Folder Include="Views\Establishments\" />
+    <Folder Include="Views\Locals\" />
     <Folder Include="Views\PromosEvents\" />
   </ItemGroup>
   <ItemGroup>
