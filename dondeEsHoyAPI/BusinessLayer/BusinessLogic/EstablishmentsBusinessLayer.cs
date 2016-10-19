@@ -37,6 +37,11 @@ namespace BusinessLayer.BusinessLogic
             return establishmentDAL.establishmentInfoByName(name);
         }
 
+        public List<establishments> allEstablishmentsInfo()
+        {
+            return establishmentDAL.allEstablishmentsInfo();
+        }
+
 
         public void modifyEstablishment(string name, int establishment_type, string imagebase64, string telefono)
         {

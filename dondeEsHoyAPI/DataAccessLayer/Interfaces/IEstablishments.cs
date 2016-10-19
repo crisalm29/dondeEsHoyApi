@@ -12,6 +12,7 @@ namespace DataAccessLayer.Interfaces
         void addNewEstablishment(establishments establishment);
         establishments establishmentInfoById(int id);
         establishments establishmentInfoByName(string name);
+        List<establishments> allEstablishmentsInfo();
         void modifyEstablishment(establishments user);
     }
 }

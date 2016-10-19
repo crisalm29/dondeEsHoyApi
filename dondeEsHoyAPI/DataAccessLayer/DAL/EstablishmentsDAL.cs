@@ -64,9 +64,29 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
+        public List<establishments> allEstablishmentsInfo()
+        {
+            List<establishments> result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = DBContext.establishments.Where(establishment => establishment.id > 0).ToList();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
+        }
+
         public void modifyEstablishment(establishments user)
         {
             throw new NotImplementedException();
         }
+
     }
 }
