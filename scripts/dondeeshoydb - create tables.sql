@@ -20,14 +20,21 @@ CREATE TABLE establishments (
 
 CREATE TABLE establishments_accounts (
      id MEDIUMINT NOT NULL AUTO_INCREMENT,
-	 establishment MEDIUMINT NOT NULL,
      name CHAR(45) NOT NULL,
 	 lastName CHAR(45) NOT NULL,
      password CHAR(45) NOT NULL,
      email CHAR(50) UNIQUE NOT NULL,
 	 imagebase64 text,
-	 FOREIGN KEY (establishment) references establishments(id),
      PRIMARY KEY (id)
+);
+
+CREATE TABLE establishments_users(
+	id MEDIUMINT NOT NULL AUTO_INCREMENT,
+     establishment_account MEDIUMINT NOT NULL,
+     establishment MEDIUMINT NOT NULL,
+     FOREIGN KEY (establishment) references establishments(id),
+     FOREIGN KEY (establishment_account) references establishments_accounts(id),
+	 PRIMARY KEY (id)
 );
 
 CREATE TABLE establishments_accounts_logs (
