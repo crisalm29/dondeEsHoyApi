@@ -18,11 +18,10 @@ namespace BusinessLayer.BusinessLogic
             return establishmentsAccountsDAL.login(email, password);
         }
 
-        public void registerEstablishmentAccount(int establishment, string email, string password, string name, string lastName, string imagebase64)
+        public void registerEstablishmentAccount(string email, string password, string name, string lastName, string imagebase64)
         {
             establishments_accounts newEstablishmentAccount = new establishments_accounts()
             {
-                establishment = establishment,
                 name = name,
                 lastName = lastName,
                 password = password,
@@ -44,11 +43,10 @@ namespace BusinessLayer.BusinessLogic
         }
 
 
-        public void modifyEstablishmentAccount(int establishment, string email, string password, string name, string imagebase64)
+        public void modifyEstablishmentAccount( string email, string password, string name, string imagebase64)
         {
             establishments_accounts newEstablishmentAccount = new establishments_accounts()
             {
-                establishment= establishment,
                 name = name,
                 password = password,
                 email = email,

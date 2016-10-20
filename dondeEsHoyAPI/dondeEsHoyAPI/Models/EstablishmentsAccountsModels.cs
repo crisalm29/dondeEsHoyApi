@@ -25,10 +25,6 @@ namespace dondeEsHoyAPI.Models
         public string email { get; set; }
 
         [Required]
-        [Display(Name = "establishment")]
-        public int establishment { get; set; }
-
-        [Required]
         [Display(Name = "name")]
         public string name { get; set; }
 

@@ -37,7 +37,7 @@ namespace dondeEsHoyAPI.Controllers
             string message;
             try
             {
-                businessObject.registerEstablishmentAccount(model.establishment, model.email, model.password, model.name, model.lastName, model.imagebase64);
+                businessObject.registerEstablishmentAccount( model.email, model.password, model.name, model.lastName, model.imagebase64);
                 result = true;
                 message = "Se ha registrado el usuario correctamente.";
                 resultCode = 1;
