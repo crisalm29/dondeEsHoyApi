@@ -10,6 +10,78 @@ namespace DataAccessLayer.DAL
 {
     public class PromosEventsDAL: IPromosEvents
     {
+        public void addNewPromoEvent(promos_events promoEvent)
+        {
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.promos_events.Add(promoEvent);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
+
+        }
+
+        public promos_events promoEventInfoById(int id)
+        {
+            promos_events result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = DBContext.promos_events.Where(promos_event => promos_event.id == id).First();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
+        }
+
+        public List<promos_events> promoEventInfoByLocal(int local)
+        {
+            List<promos_events> result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = DBContext.promos_events.Where(promo_event => promo_event.local == local).ToList();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
+        }
+
+        public List<promos_events> generalPromosEvents()
+        {
+            List<promos_events> result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = DBContext.promos_events.Where(pe => pe.is_general == 1).ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
+        }
 
         public List<promos_events> promosEventsToday()
         {
@@ -49,27 +121,12 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
-
-        public List<promos_events> generalPromosEvents()
-        {
-            List<promos_events> result = null;
-            using (var DBContext = new dondeeshoyEntities())
-            {
-                try
-                {
-                    DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.Where(pe => pe.is_general ==1).ToList();  
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            }
-            return result;
-        }
-
         public List<promos_events> promosEventsThisWeek()
         {
+            throw new NotImplementedException();
+        }
+
+        public void modifyPromoEvent(promos_events promoEvent) {
             throw new NotImplementedException();
         }
     }

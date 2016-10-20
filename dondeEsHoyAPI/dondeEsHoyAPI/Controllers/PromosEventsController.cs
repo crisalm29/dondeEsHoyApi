@@ -14,6 +14,76 @@ namespace dondeEsHoyAPI.Controllers
 {
     public class PromosEventsController : ApiController
     {
+        
+        // POST: api/PromosEvents/addNewPromoEvent
+        [Route("PromosEvents/addNewPromoEvent")]
+        public HttpResponseMessage addNewPromoEvent(RegisterPromosEventsModel model)
+        {
+            PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.addNewPromoEvent(model.name, model.start_date, model.due_date, model.description, model.imagebase64, model.is_general);
+                result = true;
+                message = "Se ha registrado el usuario correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "Ya existe un usario con ese correo electronico." : "Ha ocurrido un error al guardar el usuario. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al crear el usuario.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
+        // POST: api/PromosEvents/InfoById
+        [Route("PromosEvents/InfoById")]
+        public HttpResponseMessage InfoById(InfoByIdPromosEventsModel model)
+        {
+            bool valido = false;
+            string message = "No se obtuvo la info.";
+            PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
+            promos_events promosEvents = businessObject.promoEventInfoById(model.id);
+            var result = new { valido = valido, message = message };
+            if (promosEvents != null)
+            {
+                valido = true;
+                message = "Se obtuvo la info.";
+                var result2 = new { valido = valido, message = message, result = promosEvents };
+                return Request.CreateResponse(HttpStatusCode.OK, result2);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        // POST: api/PromosEvents/InfoByLocal
+        [Route("PromosEvents/InfoByLocal")]
+        public HttpResponseMessage InfoByLocal(InfoByLocalPromosEventsModel model)
+        {
+            bool valido = false;
+            string message = "No se obtuvo la info.";
+            PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
+            List<promos_events> promosEvents = businessObject.promoEventInfoByLocal(model.local);
+            var result = new { valido = valido, message = message };
+            if (promosEvents != null)
+            {
+                valido = true;
+                message = "Se obtuvo la info.";
+                var result2 = new { valido = valido, message = message, result = promosEvents };
+                return Request.CreateResponse(HttpStatusCode.OK, result2);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
 
         // POST: api/PromosEvents/promosEventsToday
         [Route("PromosEvents/promosEventsToday")]
