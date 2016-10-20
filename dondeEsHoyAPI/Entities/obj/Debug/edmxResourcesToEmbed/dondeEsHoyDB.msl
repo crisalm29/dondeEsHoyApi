@@ -17,7 +17,6 @@
         <MappingFragment StoreEntitySet="establishments_accounts">
           <ScalarProperty Name="imagebase64" ColumnName="imagebase64" />
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="establishment" ColumnName="establishment" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="lastName" ColumnName="lastName" />
           <ScalarProperty Name="password" ColumnName="password" />
@@ -86,6 +85,15 @@
           <ScalarProperty Name="user" ColumnName="user" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="establishment" ColumnName="establishment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="establishments_users">
+      <EntityTypeMapping TypeName="dondeeshoyModel.establishments_users">
+        <MappingFragment StoreEntitySet="establishments_users">
+          <ScalarProperty Name="establishment" ColumnName="establishment" />
+          <ScalarProperty Name="establishment_account" ColumnName="establishment_account" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

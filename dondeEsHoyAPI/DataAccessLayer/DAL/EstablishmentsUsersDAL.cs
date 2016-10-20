@@ -71,7 +71,7 @@ namespace DataAccessLayer.DAL
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.establishments_users.Where(establishments_users => establishments_users.establishment > establishment).ToList();
+                    result = DBContext.establishments_users.Where(establishments_users => establishments_users.establishment == establishment).ToList();
 
                 }
                 catch (Exception ex)
