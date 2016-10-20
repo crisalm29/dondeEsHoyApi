@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogic\EstablishmentsAccountsBusinessLayer.cs" />
     <Compile Include="BusinessLogic\EstablishmentsBusinessLayer.cs" />
+    <Compile Include="BusinessLogic\EstablishmentsUsersBusinessLayer.cs" />
     <Compile Include="BusinessLogic\LocalsBusinessLayer.cs" />
     <Compile Include="BusinessLogic\PromosEventsBusinessLayer.cs" />
     <Compile Include="BusinessLogic\UsersBusinessLayer.cs" />

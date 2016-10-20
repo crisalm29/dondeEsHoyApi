@@ -242,6 +242,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\EstablishmentsAccountsController.cs" />
     <Compile Include="Controllers\EstablishmentsController.cs" />
+    <Compile Include="Controllers\EstablishmentsUsersController.cs" />
     <Compile Include="Controllers\GooglePlacesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalsController.cs" />
@@ -252,6 +253,7 @@
     </Compile>
     <Compile Include="Models\EstablishmentsAccountsModels.cs" />
     <Compile Include="Models\EstablishmentsModels.cs" />
+    <Compile Include="Models\EstablishmentsUsersModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LatLngModel.cs" />
     <Compile Include="Models\LocalsModels.cs" />
@@ -325,6 +327,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\EstablishmentsAccounts\" />
+    <Folder Include="Views\EstablishmentsUsers\" />
     <Folder Include="Views\Establishments\" />
     <Folder Include="Views\Locals\" />
     <Folder Include="Views\PromosEvents\" />
