@@ -17,17 +17,17 @@ namespace Entities
         public establishments_accounts()
         {
             this.establishments_accounts_logs = new HashSet<establishments_accounts_logs>();
+            this.establishments_users = new HashSet<establishments_users>();
         }
     
         public int id { get; set; }
-        public int establishment { get; set; }
         public string name { get; set; }
         public string lastName { get; set; }
         public string password { get; set; }
         public string email { get; set; }
         public string imagebase64 { get; set; }
     
-        public virtual establishments establishments { get; set; }
         public virtual ICollection<establishments_accounts_logs> establishments_accounts_logs { get; set; }
+        public virtual ICollection<establishments_users> establishments_users { get; set; }
     }
 }

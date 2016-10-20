@@ -33,5 +33,6 @@ namespace Entities
         public DbSet<promos_events> promos_events { get; set; }
         public DbSet<users> users { get; set; }
         public DbSet<users_favorites_establishments> users_favorites_establishments { get; set; }
+        public DbSet<establishments_users> establishments_users { get; set; }
     }
 }

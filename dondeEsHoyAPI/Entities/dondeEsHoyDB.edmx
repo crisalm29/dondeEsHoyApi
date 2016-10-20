@@ -20,7 +20,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="establishment" Type="mediumint" Nullable="false" />
           <Property Name="name" Type="char" MaxLength="45" Nullable="false" />
           <Property Name="lastName" Type="char" MaxLength="45" Nullable="false" />
           <Property Name="password" Type="char" MaxLength="45" Nullable="false" />
@@ -42,6 +41,14 @@
           </Key>
           <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="char" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="establishments_users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="establishment_account" Type="mediumint" Nullable="false" />
+          <Property Name="establishment" Type="mediumint" Nullable="false" />
         </EntityType>
         <EntityType Name="locals">
           <Key>
@@ -85,18 +92,6 @@
           <Property Name="user" Type="mediumint" Nullable="false" />
           <Property Name="establishment" Type="mediumint" Nullable="false" />
         </EntityType>
-        <Association Name="establishments_accounts_ibfk_1">
-          <End Role="establishments" Type="Self.establishments" Multiplicity="1" />
-          <End Role="establishments_accounts" Type="Self.establishments_accounts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="establishments">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="establishments_accounts">
-              <PropertyRef Name="establishment" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="establishments_accounts_logs_ibfk_1">
           <End Role="establishments_accounts" Type="Self.establishments_accounts" Multiplicity="0..1" />
           <End Role="establishments_accounts_logs" Type="Self.establishments_accounts_logs" Multiplicity="*" />
@@ -118,6 +113,30 @@
             </Principal>
             <Dependent Role="establishments">
               <PropertyRef Name="establishment_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="establishments_users_ibfk_1">
+          <End Role="establishments" Type="Self.establishments" Multiplicity="1" />
+          <End Role="establishments_users" Type="Self.establishments_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="establishments">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="establishments_users">
+              <PropertyRef Name="establishment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="establishments_users_ibfk_2">
+          <End Role="establishments_accounts" Type="Self.establishments_accounts" Multiplicity="1" />
+          <End Role="establishments_users" Type="Self.establishments_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="establishments_accounts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="establishments_users">
+              <PropertyRef Name="establishment_account" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -174,14 +193,11 @@
           <EntitySet Name="establishments_accounts" EntityType="Self.establishments_accounts" Schema="dondeeshoy" store:Type="Tables" />
           <EntitySet Name="establishments_accounts_logs" EntityType="Self.establishments_accounts_logs" Schema="dondeeshoy" store:Type="Tables" />
           <EntitySet Name="establishments_type" EntityType="Self.establishments_type" Schema="dondeeshoy" store:Type="Tables" />
+          <EntitySet Name="establishments_users" EntityType="Self.establishments_users" Schema="dondeeshoy" store:Type="Tables" />
           <EntitySet Name="locals" EntityType="Self.locals" Schema="dondeeshoy" store:Type="Tables" />
           <EntitySet Name="promos_events" EntityType="Self.promos_events" Schema="dondeeshoy" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dondeeshoy" store:Type="Tables" />
           <EntitySet Name="users_favorites_establishments" EntityType="Self.users_favorites_establishments" Schema="dondeeshoy" store:Type="Tables" />
-          <AssociationSet Name="establishments_accounts_ibfk_1" Association="Self.establishments_accounts_ibfk_1">
-            <End Role="establishments" EntitySet="establishments" />
-            <End Role="establishments_accounts" EntitySet="establishments_accounts" />
-          </AssociationSet>
           <AssociationSet Name="establishments_accounts_logs_ibfk_1" Association="Self.establishments_accounts_logs_ibfk_1">
             <End Role="establishments_accounts" EntitySet="establishments_accounts" />
             <End Role="establishments_accounts_logs" EntitySet="establishments_accounts_logs" />
@@ -189,6 +205,14 @@
           <AssociationSet Name="establishments_ibfk_1" Association="Self.establishments_ibfk_1">
             <End Role="establishments_type" EntitySet="establishments_type" />
             <End Role="establishments" EntitySet="establishments" />
+          </AssociationSet>
+          <AssociationSet Name="establishments_users_ibfk_1" Association="Self.establishments_users_ibfk_1">
+            <End Role="establishments" EntitySet="establishments" />
+            <End Role="establishments_users" EntitySet="establishments_users" />
+          </AssociationSet>
+          <AssociationSet Name="establishments_users_ibfk_2" Association="Self.establishments_users_ibfk_2">
+            <End Role="establishments_accounts" EntitySet="establishments_accounts" />
+            <End Role="establishments_users" EntitySet="establishments_users" />
           </AssociationSet>
           <AssociationSet Name="locals_ibfk_1" Association="Self.locals_ibfk_1">
             <End Role="establishments" EntitySet="establishments" />
@@ -220,24 +244,23 @@
           <Property Name="establishment_type" Type="Int32" />
           <Property Name="imagebase64" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="establishments_accounts" Relationship="Self.establishments_accounts_ibfk_1" FromRole="establishments" ToRole="establishments_accounts" />
           <NavigationProperty Name="establishments_type" Relationship="Self.establishments_ibfk_1" FromRole="establishments" ToRole="establishments_type" />
           <NavigationProperty Name="locals" Relationship="Self.locals_ibfk_1" FromRole="establishments" ToRole="locals" />
           <NavigationProperty Name="users_favorites_establishments" Relationship="Self.users_favorites_establishments_ibfk_1" FromRole="establishments" ToRole="users_favorites_establishments" />
+          <NavigationProperty Name="establishments_users" Relationship="dondeeshoyModel.establishments_users_ibfk_1" FromRole="establishments" ToRole="establishments_users" />
         </EntityType>
         <EntityType Name="establishments_accounts">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="establishment" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="lastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="imagebase64" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="establishments" Relationship="Self.establishments_accounts_ibfk_1" FromRole="establishments_accounts" ToRole="establishments" />
           <NavigationProperty Name="establishments_accounts_logs" Relationship="Self.establishments_accounts_logs_ibfk_1" FromRole="establishments_accounts" ToRole="establishments_accounts_logs" />
+          <NavigationProperty Name="establishments_users" Relationship="dondeeshoyModel.establishments_users_ibfk_2" FromRole="establishments_accounts" ToRole="establishments_users" />
         </EntityType>
         <EntityType Name="establishments_accounts_logs">
           <Key>
@@ -305,18 +328,6 @@
           <NavigationProperty Name="establishments" Relationship="Self.users_favorites_establishments_ibfk_1" FromRole="users_favorites_establishments" ToRole="establishments" />
           <NavigationProperty Name="users" Relationship="Self.users_favorites_establishments_ibfk_2" FromRole="users_favorites_establishments" ToRole="users" />
         </EntityType>
-        <Association Name="establishments_accounts_ibfk_1">
-          <End Role="establishments" Type="Self.establishments" Multiplicity="1" />
-          <End Role="establishments_accounts" Type="Self.establishments_accounts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="establishments">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="establishments_accounts">
-              <PropertyRef Name="establishment" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="establishments_ibfk_1">
           <End Role="establishments_type" Type="Self.establishments_type" Multiplicity="0..1" />
           <End Role="establishments" Type="Self.establishments" Multiplicity="*" />
@@ -423,10 +434,6 @@
           <EntitySet Name="promos_events" EntityType="Self.promos_events" />
           <EntitySet Name="users" EntityType="Self.users" />
           <EntitySet Name="users_favorites_establishments" EntityType="Self.users_favorites_establishments" />
-          <AssociationSet Name="establishments_accounts_ibfk_1" Association="Self.establishments_accounts_ibfk_1">
-            <End Role="establishments" EntitySet="establishments" />
-            <End Role="establishments_accounts" EntitySet="establishments_accounts" />
-          </AssociationSet>
           <AssociationSet Name="establishments_ibfk_1" Association="Self.establishments_ibfk_1">
             <End Role="establishments_type" EntitySet="establishments_type" />
             <End Role="establishments" EntitySet="establishments" />
@@ -459,11 +466,54 @@
             <End Role="users" EntitySet="users" />
             <End Role="users_favorites_establishments" EntitySet="users_favorites_establishments" />
           </AssociationSet>
+          <EntitySet Name="establishments_users" EntityType="dondeeshoyModel.establishments_users" />
+          <AssociationSet Name="establishments_users_ibfk_1" Association="dondeeshoyModel.establishments_users_ibfk_1">
+            <End Role="establishments" EntitySet="establishments" />
+            <End Role="establishments_users" EntitySet="establishments_users" />
+          </AssociationSet>
+          <AssociationSet Name="establishments_users_ibfk_2" Association="dondeeshoyModel.establishments_users_ibfk_2">
+            <End Role="establishments_accounts" EntitySet="establishments_accounts" />
+            <End Role="establishments_users" EntitySet="establishments_users" />
+          </AssociationSet>
           <!--AssociationSet Name="promos_events_ibfk_11" Association="dondeeshoyModel.promos_events_ibfk_11">
             <End Role="locals" EntitySet="locals" />
             <End Role="promos_events" EntitySet="promos_events" />
           </AssociationSet-->
         </EntityContainer>
+        <EntityType Name="establishments_users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="establishment_account" Type="Int32" Nullable="false" />
+          <Property Name="establishment" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="establishments" Relationship="dondeeshoyModel.establishments_users_ibfk_1" FromRole="establishments_users" ToRole="establishments" />
+          <NavigationProperty Name="establishments_accounts" Relationship="dondeeshoyModel.establishments_users_ibfk_2" FromRole="establishments_users" ToRole="establishments_accounts" />
+        </EntityType>
+        <Association Name="establishments_users_ibfk_1">
+          <End Type="dondeeshoyModel.establishments" Role="establishments" Multiplicity="1" />
+          <End Type="dondeeshoyModel.establishments_users" Role="establishments_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="establishments">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="establishments_users">
+              <PropertyRef Name="establishment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="establishments_users_ibfk_2">
+          <End Type="dondeeshoyModel.establishments_accounts" Role="establishments_accounts" Multiplicity="1" />
+          <End Type="dondeeshoyModel.establishments_users" Role="establishments_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="establishments_accounts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="establishments_users">
+              <PropertyRef Name="establishment_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <!--Association Name="promos_events_ibfk_11">
           <End Type="dondeeshoyModel.locals" Role="locals" Multiplicity="1" />
           <End Type="dondeeshoyModel.promos_events" Role="promos_events" Multiplicity="*" />
@@ -498,7 +548,6 @@
               <MappingFragment StoreEntitySet="establishments_accounts">
                 <ScalarProperty Name="imagebase64" ColumnName="imagebase64" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="establishment" ColumnName="establishment" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
                 <ScalarProperty Name="password" ColumnName="password" />
@@ -567,6 +616,15 @@
                 <ScalarProperty Name="user" ColumnName="user" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="establishment" ColumnName="establishment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="establishments_users">
+            <EntityTypeMapping TypeName="dondeeshoyModel.establishments_users">
+              <MappingFragment StoreEntitySet="establishments_users">
+                <ScalarProperty Name="establishment" ColumnName="establishment" />
+                <ScalarProperty Name="establishment_account" ColumnName="establishment_account" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -16,9 +16,9 @@ namespace Entities
     {
         public establishments()
         {
-            this.establishments_accounts = new HashSet<establishments_accounts>();
             this.locals = new HashSet<locals>();
             this.users_favorites_establishments = new HashSet<users_favorites_establishments>();
+            this.establishments_users = new HashSet<establishments_users>();
         }
     
         public int id { get; set; }
@@ -27,9 +27,9 @@ namespace Entities
         public string imagebase64 { get; set; }
         public string telefono { get; set; }
     
-        public virtual ICollection<establishments_accounts> establishments_accounts { get; set; }
         public virtual establishments_type establishments_type { get; set; }
         public virtual ICollection<locals> locals { get; set; }
         public virtual ICollection<users_favorites_establishments> users_favorites_establishments { get; set; }
+        public virtual ICollection<establishments_users> establishments_users { get; set; }
     }
 }

@@ -14,19 +14,14 @@ namespace Entities
     
     public partial class promos_events
     {
-        public promos_events()
-        {
-        }
-    
         public int id { get; set; }
         public string name { get; set; }
         public System.DateTime start_date { get; set; }
         public System.DateTime due_date { get; set; }
         public string description { get; set; }
-        public int establishment { get; set; }
-        public string imagebase64 { get; set; }
         public int local { get; set; }
-        public int is_general { get; set; }
+        public Nullable<int> is_general { get; set; }
+        public string imagebase64 { get; set; }
     
         public virtual locals locals { get; set; }
     }

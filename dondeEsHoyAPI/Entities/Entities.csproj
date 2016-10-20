@@ -83,6 +83,9 @@
     <Compile Include="establishments_type.cs">
       <DependentUpon>dondeEsHoyDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="establishments_users.cs">
+      <DependentUpon>dondeEsHoyDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="locals.cs">
       <DependentUpon>dondeEsHoyDB.tt</DependentUpon>
     </Compile>

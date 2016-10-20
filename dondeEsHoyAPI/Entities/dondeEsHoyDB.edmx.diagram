@@ -14,7 +14,6 @@
         <EntityTypeShape EntityType="dondeeshoyModel.promos_events" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dondeeshoyModel.users" Width="1.5" PointX="8" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dondeeshoyModel.users_favorites_establishments" Width="1.5" PointX="12" PointY="9.5" IsExpanded="true" />
-        <AssociationConnector Association="dondeeshoyModel.establishments_accounts_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="dondeeshoyModel.establishments_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="dondeeshoyModel.locals_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="dondeeshoyModel.promos_events_ibfk_1" ManuallyRouted="false" />
@@ -24,6 +23,9 @@
         <AssociationConnector Association="dondeeshoyModel.locals_promos_events_ibfk_2" ManuallyRouted="false" />
         <AssociationConnector Association="dondeeshoyModel.users_favorites_establishments_ibfk_2" ManuallyRouted="false" />
         <AssociationConnector Association="dondeeshoyModel.promos_events_ibfk_11" />
+        <EntityTypeShape EntityType="dondeeshoyModel.establishments_users" Width="1.5" PointX="7.5" PointY="5.75" />
+        <AssociationConnector Association="dondeeshoyModel.establishments_users_ibfk_1" />
+        <AssociationConnector Association="dondeeshoyModel.establishments_users_ibfk_2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
