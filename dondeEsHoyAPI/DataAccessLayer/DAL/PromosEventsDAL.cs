@@ -54,7 +54,7 @@ namespace DataAccessLayer.DAL
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.Where(promo_event => promo_event.local == local).ToList();
+                    result = DBContext.promos_events.Where(promo_event => promo_event.local == local && promo_event.is_general==0).ToList();
 
                 }
                 catch (Exception ex)

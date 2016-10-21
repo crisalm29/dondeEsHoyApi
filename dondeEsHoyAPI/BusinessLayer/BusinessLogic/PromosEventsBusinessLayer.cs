@@ -12,11 +12,12 @@ namespace BusinessLayer.BusinessLogic
     {
         PromosEventsDAL promosEventsDAL = new PromosEventsDAL();
 
-        public void addNewPromoEvent(string name, string start_date, string due_date, string description, string imagebase64, int is_general)
+        public void addNewPromoEvent(string name, int local, string start_date, string due_date, string description, string imagebase64, int is_general)
         {
             promos_events newPromoEvent = new promos_events()
             {
                 name = name,
+                local = local,
                 start_date = DateTime.Parse(start_date),
                 due_date = DateTime.Parse(due_date),
                 description= description,
@@ -58,11 +59,12 @@ namespace BusinessLayer.BusinessLogic
             return promosEventsDAL.promosEventsThisWeek();
         }
 
-        public void modifyPromoEvent(string name, string start_date, string due_date, string description, string imagebase64, int is_general)
+        public void modifyPromoEvent(string name, int local, string start_date, string due_date, string description, string imagebase64, int is_general)
         {
             promos_events newPromoEvent = new promos_events()
             {
                 name = name,
+                local = local,
                 start_date = DateTime.Parse(start_date),
                 due_date = DateTime.Parse(due_date),
                 description = description,

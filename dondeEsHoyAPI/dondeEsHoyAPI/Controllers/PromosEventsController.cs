@@ -25,7 +25,7 @@ namespace dondeEsHoyAPI.Controllers
             string message;
             try
             {
-                businessObject.addNewPromoEvent(model.name, model.start_date, model.due_date, model.description, model.imagebase64, model.is_general);
+                businessObject.addNewPromoEvent(model.name, model.local, model.start_date, model.due_date, model.description, model.imagebase64, model.is_general);
                 result = true;
                 message = "Se ha registrado el usuario correctamente.";
                 resultCode = 1;

@@ -14,6 +14,10 @@ namespace dondeEsHoyAPI.Models
         public string name { get; set; }
 
         [Required]
+        [Display(Name = "local")]
+        public int local { get; set; }
+
+        [Required]
         [Display(Name = "start_date")]
         public string start_date { get; set; }
 
