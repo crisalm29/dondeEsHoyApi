@@ -92,7 +92,7 @@ namespace DataAccessLayer.DAL
                 {
                    
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.AsEnumerable().Where(pe => String.Format("{0:MM/dd/yyyy}", pe.start_date.Date) == String.Format("{0:MM/dd/yyyy}", DateTime.Now.Date)).ToList();  //pe => pe.start_date.Date == DateTime.Today.Date pe => System.Data.Entity.Core.Objects.EntityFunctions.TruncateTime(pe.start_date.Date) == DateTime.Today.Date
+                    result = DBContext.promos_events.AsEnumerable().Where(pe => String.Format("{0:yyyy/MM/dd}", pe.start_date.Date) == String.Format("{0:yyyy/MM/dd}", DateTime.Now.Date)).ToList();  //pe => pe.start_date.Date == DateTime.Today.Date pe => System.Data.Entity.Core.Objects.EntityFunctions.TruncateTime(pe.start_date.Date) == DateTime.Today.Date
 
                 }
                 catch (Exception ex)
@@ -124,7 +124,20 @@ namespace DataAccessLayer.DAL
 
         public List<promos_events> promosEventsThisWeek()
         {
-            throw new NotImplementedException();
+            List<promos_events> result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = DBContext.promos_events.AsEnumerable().Where(pe => pe.start_date.Month ==1).ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
         }
 
         public void modifyPromoEvent(promos_events promoEvent) {
