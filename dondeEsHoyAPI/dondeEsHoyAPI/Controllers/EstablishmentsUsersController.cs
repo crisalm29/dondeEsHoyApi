@@ -105,6 +105,41 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // POST: api/EstablishmentsUsers/addEstablishmentAndAccount
+        [Route("EstablishmentsUsers/addEstablishmentAndAccount")]
+        public HttpResponseMessage addEstablishmentAndAccount(RegisterEstablishmentAndAccount model)
+        {
+            EstablishmentsBusinessLayer aux1 = new EstablishmentsBusinessLayer();
+            EstablishmentsAccountsBusinessLayer aux2 = new EstablishmentsAccountsBusinessLayer();
+            EstablishmentsUsersBusinessLayer businessObject = new EstablishmentsUsersBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                aux1.registerEstablishment(model.establishment.name, model.establishment.establishment_type, model.establishment.imagebase64, model.establishment.telefono);
+                aux2.registerEstablishmentAccount(model.establishment_account.email, model.establishment_account.password, model.establishment_account.name, model.establishment_account.lastName, model.establishment_account.imagebase64);
+                establishments aux11 = aux1.establishmentInfoByName(model.establishment.name);
+                establishments_accounts aux22 = aux2.establishmentAccountInfoByEmail(model.establishment_account.email);
+                businessObject.registerEstablishmentsUsers(aux11.id, aux22.id);
+                result = true;
+                message = "Se ha registrado el establecimiento y el usuario correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "Ocurrió un error, verifique los datos." : "Ha ocurrido un error al guardar el usuario. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al crear el usuario.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
         // GET: api/EstablishmentsUsers
         public IEnumerable<string> Get()
         {

@@ -38,4 +38,15 @@ namespace dondeEsHoyAPI.Models
         public int establishment { get; set; }
     }
 
+    public class RegisterEstablishmentAndAccount
+    {
+        [Required]
+        [Display(Name = "establishment")]
+        public RegisterEstablishmentModel establishment { get; set; }
+
+        [Required]
+        [Display(Name = "establishment_account")]
+        public RegisterEstablishmentAccountModel establishment_account { get; set; }
+    }
+
 }

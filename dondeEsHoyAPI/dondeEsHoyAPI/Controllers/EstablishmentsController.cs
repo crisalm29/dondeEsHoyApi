@@ -24,7 +24,7 @@ namespace dondeEsHoyAPI.Controllers
             string message;
             try
             {
-                businessObject.registerEstablishment(model.name, model.establishment_type,  model.imagebase64, model.telefono);
+                businessObject.registerEstablishment(model.name, model.establishment_type, model.imagebase64, model.telefono);
                 result = true;
                 message = "Se ha registrado el usuario correctamente.";
                 resultCode = 1;
