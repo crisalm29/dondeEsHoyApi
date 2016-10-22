@@ -122,6 +122,12 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
+        private bool inThisWeek(DateTime d)
+        {
+            bool bandera = true;
+            return bandera;
+        }
+
         public List<promos_events> promosEventsThisWeek()
         {
             List<promos_events> result = null;
@@ -130,7 +136,7 @@ namespace DataAccessLayer.DAL
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.AsEnumerable().Where(pe => pe.start_date.Month ==1).ToList();
+                    result = DBContext.promos_events.AsEnumerable().Where(pe => inThisWeek(pe.start_date) == true).ToList();
                 }
                 catch (Exception ex)
                 {

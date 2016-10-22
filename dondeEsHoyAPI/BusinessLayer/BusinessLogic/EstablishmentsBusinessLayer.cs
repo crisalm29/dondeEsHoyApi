@@ -37,9 +37,15 @@ namespace BusinessLayer.BusinessLogic
             return establishmentDAL.establishmentInfoByName(name);
         }
 
+
         public List<establishments> allEstablishmentsInfo()
         {
             return establishmentDAL.allEstablishmentsInfo();
+        }
+
+        public establishments establishmentByAccount(string email)
+        {
+            return establishmentDAL.establishmentByAccount(email);
         }
 
 

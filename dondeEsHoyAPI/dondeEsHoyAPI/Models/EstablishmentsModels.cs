@@ -38,4 +38,11 @@ namespace dondeEsHoyAPI.Models
             [Display(Name = "name")]
             public string name { get; set; }
         }
+
+        public class InfoByAccountEstablishmentModel
+        {
+        [Required]
+        [Display(Name = "email")]
+        public string email { get; set; }
+        }
 }

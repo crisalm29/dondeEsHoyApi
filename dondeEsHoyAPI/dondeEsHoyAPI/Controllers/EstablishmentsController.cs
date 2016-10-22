@@ -103,6 +103,26 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // POST: api/Establishments/establishmentByAccount
+        [Route("Establishments/establishmentByAccount")]
+        public HttpResponseMessage establishmentByAccount(InfoByAccountEstablishmentModel model)
+        {
+            bool valido = false;
+            string message = "No se obtuvo la info.";
+            EstablishmentsBusinessLayer businessObject = new EstablishmentsBusinessLayer();
+            establishments establishment = businessObject.establishmentByAccount(model.email);
+            var result = new { valido = valido, message = message };
+            if (establishment != null)
+            {
+                valido = true;
+                message = "Se obtuvo la info.";
+                var result2 = new { valido = valido, message = message, result = establishment };
+                return Request.CreateResponse(HttpStatusCode.OK, result2);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
         // GET: api/Establishments
         public IEnumerable<string> Get()
         {

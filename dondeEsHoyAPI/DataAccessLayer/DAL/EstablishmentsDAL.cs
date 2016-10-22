@@ -83,6 +83,28 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
+        public establishments establishmentByAccount(string email)
+        {
+            establishments result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = (from es in DBContext.establishments
+                              join eu in DBContext.establishments_users on es.id equals eu.establishment
+                              join ea in DBContext.establishments_accounts on eu.establishment_account equals ea.id
+                              where ea.email == email
+                              select es).First();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
+        }
+
         public void modifyEstablishment(establishments user)
         {
             throw new NotImplementedException();
