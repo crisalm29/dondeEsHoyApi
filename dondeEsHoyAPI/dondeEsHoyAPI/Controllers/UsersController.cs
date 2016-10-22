@@ -92,6 +92,64 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // POST: api/Users/modifyUser
+        [Route("Users/modifyUser")]
+        public HttpResponseMessage modifyUser(ModifyUserModel model)
+        {
+            UsersBusinessLayer businessObject = new UsersBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.modifyUser(model.id, model.email, model.password, model.name, model.lastName, model.imagebase64);
+                result = true;
+                message = "Se ha actualizar el usuario correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo actualizar." : "Ha ocurrido un error al guardar el usuario. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al actualizar el usuario.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
+        // POST: api/Users/ddeleteUser
+        [Route("Users/ddeleteUser")]
+        public HttpResponseMessage ddeleteUser(DeleteUserModel model)
+        {
+            UsersBusinessLayer businessObject = new UsersBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.deleteUser(model.id);
+                result = true;
+                message = "Se ha eliminado el usuario correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo eliminar." : "Ha ocurrido un error al elimianr el usuario. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al eliminar el usuario.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
         // GET: api/Users
         public IEnumerable<string> Get()
         {
@@ -117,6 +175,18 @@ namespace dondeEsHoyAPI.Controllers
         // DELETE: api/Users/5
         public void Delete(int id)
         {
+            UsersBusinessLayer businessObject = new UsersBusinessLayer();
+            try
+            {
+                businessObject.deleteUser(id);
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

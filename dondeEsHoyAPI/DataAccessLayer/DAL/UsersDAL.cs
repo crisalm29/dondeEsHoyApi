@@ -80,7 +80,39 @@ namespace DataAccessLayer.DAL
 
         public void modifyUser(users user)
         {
-            throw new NotImplementedException();
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    var entity = DBContext.users.Find(user.id);
+                    DBContext.Entry(entity).CurrentValues.SetValues(user);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
+        }
+
+        public void deleteUser(int id)
+        {
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    users user = new users { id = id };
+                    DBContext.users.Attach(user);
+                    DBContext.users.Remove(user);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
         }
     }
 }

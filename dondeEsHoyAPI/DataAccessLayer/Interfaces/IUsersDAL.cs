@@ -19,5 +19,7 @@ namespace DataAccessLayer.Interfaces
         users userInfoByEmail(string email);
 
         void modifyUser(users user);
+
+        void deleteUser(int id);
     }
 }
