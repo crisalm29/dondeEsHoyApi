@@ -173,6 +173,7 @@ namespace dondeEsHoyAPI.Controllers
         }
 
         // DELETE: api/Users/5
+        [HttpDelete]
         public void Delete(int id)
         {
             UsersBusinessLayer businessObject = new UsersBusinessLayer();

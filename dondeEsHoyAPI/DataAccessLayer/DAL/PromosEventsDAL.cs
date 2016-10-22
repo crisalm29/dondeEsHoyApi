@@ -90,8 +90,9 @@ namespace DataAccessLayer.DAL
             {
                 try
                 {
+                   
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.Where(pe => pe.start_date.Date == DateTime.Today.Date).ToList();  //pe => pe.start_date.Date == DateTime.Today.Date pe => System.Data.Entity.Core.Objects.EntityFunctions.TruncateTime(pe.start_date.Date) == DateTime.Today.Date
+                    result = DBContext.promos_events.AsEnumerable().Where(pe => String.Format("{0:MM/dd/yyyy}", pe.start_date.Date) == String.Format("{0:MM/dd/yyyy}", DateTime.Now.Date)).ToList();  //pe => pe.start_date.Date == DateTime.Today.Date pe => System.Data.Entity.Core.Objects.EntityFunctions.TruncateTime(pe.start_date.Date) == DateTime.Today.Date
 
                 }
                 catch (Exception ex)
