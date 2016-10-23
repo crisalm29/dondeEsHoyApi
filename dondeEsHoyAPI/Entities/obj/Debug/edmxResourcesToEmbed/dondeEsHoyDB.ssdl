@@ -62,7 +62,7 @@
     <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="char" MaxLength="45" />
     <Property Name="start_date" Type="datetime" Precision="0" Nullable="false" />
-    <Property Name="due_date" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="due_date" Type="datetime" Precision="0" Nullable="true" />
     <Property Name="description" Type="text" Nullable="false" />
     <Property Name="local" Type="mediumint" Nullable="false" />
     <Property Name="imagebase64" Type="text" />

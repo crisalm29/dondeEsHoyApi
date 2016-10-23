@@ -17,7 +17,7 @@ namespace Entities
         public int id { get; set; }
         public string name { get; set; }
         public System.DateTime start_date { get; set; }
-        public System.DateTime due_date { get; set; }
+        public Nullable<System.DateTime> due_date { get; set; }
         public string description { get; set; }
         public int local { get; set; }
         public Nullable<int> is_general { get; set; }

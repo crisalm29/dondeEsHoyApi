@@ -64,7 +64,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="start_date" Type="DateTime" Nullable="false" />
-    <Property Name="due_date" Type="DateTime" Nullable="false" />
+    <Property Name="due_date" Type="DateTime" Nullable="true" />
     <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="local" Type="Int32" Nullable="false" />
     <Property Name="is_general" Type="Int32" />

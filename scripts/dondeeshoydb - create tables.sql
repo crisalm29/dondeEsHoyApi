@@ -62,7 +62,7 @@ CREATE TABLE promos_events (
      id MEDIUMINT NOT NULL AUTO_INCREMENT,
      name CHAR(45),
      start_date datetime NOT NULL,
-     due_date datetime NOT NULL,
+     due_date datetime,
      description TEXT NOT NULL,
      local MEDIUMINT NOT NULL,
      imagebase64 text ,

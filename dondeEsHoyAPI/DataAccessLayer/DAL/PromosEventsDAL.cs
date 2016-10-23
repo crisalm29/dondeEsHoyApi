@@ -103,6 +103,40 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
+        private bool inThisMonth(DateTime d1, Nullable<DateTime> d2)
+        {
+            bool bandera = false;
+            DateTime today = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
+            if (d1 != null && d2 == null)
+            {
+                DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
+                int result = DateTime.Compare(date1, today);
+                if (result <= 0)
+                {
+                    bandera = true;
+                }
+                else
+                {
+                    DateTime aux = today.AddMonths(1);
+                    aux= new DateTime(aux.Year, aux.Month, 1, 0, 0, 0);
+                    int result1 = DateTime.Compare(date1, aux);
+                    bandera = (result1 < 0);
+                }
+            }
+            else
+            {
+                DateTime d3 = d2.HasValue ? d2.Value : d2.GetValueOrDefault();
+                DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
+                DateTime date2 = new DateTime(d3.Year, d3.Month, d3.Day, 0, 0, 0);
+                int result1 = DateTime.Compare(date1, today);
+                int result2 = DateTime.Compare(date2, today);
+                bandera = (result1 <= 0 && result2 >= 0);
+
+            }
+
+            return bandera;
+        }
+
 
         public List<promos_events> promosEventsThisMoth()
         {
@@ -112,7 +146,7 @@ namespace DataAccessLayer.DAL
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.Where(pe => pe.start_date.Month == DateTime.Now.Month && pe.start_date.Year == DateTime.Now.Year).ToList(); 
+                    result = DBContext.promos_events.AsEnumerable().Where(pe => inThisMonth(pe.start_date, pe.due_date) == true).ToList(); 
                 }
                 catch (Exception ex)
                 {
@@ -122,9 +156,35 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
-        private bool inThisWeek(DateTime d)
+        private bool inThisWeek(DateTime d1, Nullable<DateTime> d2)
         {
-            bool bandera = true;
+            bool bandera = false;
+            DateTime today = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
+                if (d1 != null && d2 == null)
+                {
+                DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
+                int result = DateTime.Compare(date1, today);
+                if (result <= 0)
+                {
+                    bandera = true;
+                }
+                else {
+                    int dayWeekToday = (int)today.DayOfWeek;
+                    DateTime finalDayWeek = today.AddDays(6- dayWeekToday);
+                    int result1 = DateTime.Compare(date1, finalDayWeek);
+                    bandera = (result1 <= 0);
+                }
+            }
+                else {
+                    DateTime d3 = d2.HasValue ? d2.Value : d2.GetValueOrDefault();
+                    DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
+                    DateTime date2 = new DateTime(d3.Year, d3.Month, d3.Day, 0, 0, 0);
+                    int result1 = DateTime.Compare(date1, today);
+                    int result2 = DateTime.Compare(date2, today);
+                    bandera = (result1 <= 0 && result2 >= 0);
+                
+            }
+            
             return bandera;
         }
 
@@ -136,7 +196,7 @@ namespace DataAccessLayer.DAL
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.AsEnumerable().Where(pe => inThisWeek(pe.start_date) == true).ToList();
+                    result = DBContext.promos_events.AsEnumerable().Where(pe => inThisWeek(pe.start_date, pe.due_date) == true).ToList();
                 }
                 catch (Exception ex)
                 {
