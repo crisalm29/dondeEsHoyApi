@@ -38,26 +38,26 @@ namespace BusinessLayer.BusinessLogic
             return promosEventsDAL.promoEventInfoByLocal(local);
         }
 
-        public List<promos_events> promosEventsToday()
-        {
-            return promosEventsDAL.promosEventsToday();
-        }
-
-
-        public List<promos_events> promosEventsThisMoth()
-        {
-            return promosEventsDAL.promosEventsThisMoth();
-        }
-
         public List<promos_events> generalPromosEvents()
         {
             return promosEventsDAL.generalPromosEvents();
         }
 
-        public List<promos_events> promosEventsThisWeek()
+        public IEnumerable<dynamic> promosEventsToday()
+        {
+            return promosEventsDAL.promosEventsToday();
+        }
+
+        public IEnumerable<dynamic> promosEventsThisWeek()
         {
             return promosEventsDAL.promosEventsThisWeek();
         }
+
+        public IEnumerable<dynamic> promosEventsThisMoth()
+        {
+            return promosEventsDAL.promosEventsThisMoth();
+        }
+
 
         public void modifyPromoEvent(string name, int local, string start_date, string due_date, string description, string imagebase64, int is_general)
         {

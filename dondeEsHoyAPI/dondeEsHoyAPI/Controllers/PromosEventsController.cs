@@ -84,6 +84,25 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // POST: api/PromosEvents/generalPromosEvents
+        [Route("PromosEvents/generalPromosEvents")]
+        public HttpResponseMessage generalPromosEvents()
+        {
+            bool valido = false;
+            string message = "No se obtuvo la info.";
+            PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
+            List<promos_events> promosEvents = businessObject.generalPromosEvents();
+            var result = new { valido = valido, message = message };
+            if (promosEvents != null)
+            {
+                valido = true;
+                message = "Se obtuvo la info.";
+                var result2 = new { valido = valido, message = message, result = promosEvents };
+                return Request.CreateResponse(HttpStatusCode.OK, result2);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
 
         // POST: api/PromosEvents/promosEventsToday
         [Route("PromosEvents/promosEventsToday")]
@@ -92,27 +111,7 @@ namespace dondeEsHoyAPI.Controllers
             bool valido = false;
             string message = "No se obtuvo la info.";
             PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
-            List<promos_events> promosEvents = businessObject.promosEventsToday();
-            var result = new { valido = valido, message = message };
-            if (promosEvents != null)
-            {
-                valido = true;
-                message = "Se obtuvo la info.";
-                var result2 = new { valido = valido, message = message, result= promosEvents };
-                return Request.CreateResponse(HttpStatusCode.OK, result2);
-            }
-
-            return Request.CreateResponse(HttpStatusCode.OK, result);
-        }
-
-        // POST: api/PromosEvents/promosEventsThisMoth
-        [Route("PromosEvents/promosEventsThisMoth")]
-        public HttpResponseMessage promosEventsThisMoth()
-        {
-            bool valido = false;
-            string message = "No se obtuvo la info.";
-            PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
-            List<promos_events> promosEvents = businessObject.promosEventsThisMoth();
+            IEnumerable<dynamic> promosEvents = businessObject.promosEventsToday();
             var result = new { valido = valido, message = message };
             if (promosEvents != null)
             {
@@ -132,7 +131,7 @@ namespace dondeEsHoyAPI.Controllers
             bool valido = false;
             string message = "No se obtuvo la info.";
             PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
-            List<promos_events> promosEvents = businessObject.promosEventsThisWeek();
+            IEnumerable<dynamic> promosEvents = businessObject.promosEventsThisWeek();
             var result = new { valido = valido, message = message };
             if (promosEvents != null)
             {
@@ -145,14 +144,14 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
-        // POST: api/PromosEvents/generalPromosEvents
-        [Route("PromosEvents/generalPromosEvents")]
-        public HttpResponseMessage generalPromosEvents()
+        // POST: api/PromosEvents/promosEventsThisMoth
+        [Route("PromosEvents/promosEventsThisMoth")]
+        public HttpResponseMessage promosEventsThisMoth()
         {
             bool valido = false;
             string message = "No se obtuvo la info.";
             PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
-            List<promos_events> promosEvents = businessObject.generalPromosEvents();
+            IEnumerable<dynamic> promosEvents = businessObject.promosEventsThisMoth();
             var result = new { valido = valido, message = message };
             if (promosEvents != null)
             {

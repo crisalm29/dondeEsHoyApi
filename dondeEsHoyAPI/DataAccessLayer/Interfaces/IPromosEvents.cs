@@ -15,9 +15,9 @@ namespace DataAccessLayer.Interfaces
         List<promos_events> generalPromosEvents();
         //List<promos_events> promoEventInfoByStartDate();
         //List<promos_events> promoEventInfoByDueDate();
-        List<promos_events> promosEventsToday();
-        List<promos_events> promosEventsThisMoth();
-        List<promos_events> promosEventsThisWeek();
+        IEnumerable<dynamic> promosEventsToday();
+        IEnumerable<dynamic> promosEventsThisMoth();
+        IEnumerable<dynamic> promosEventsThisWeek();
         void modifyPromoEvent(promos_events promoEvent);
     }
 }

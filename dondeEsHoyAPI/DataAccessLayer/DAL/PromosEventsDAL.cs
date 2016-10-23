@@ -83,24 +83,62 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
-        public List<promos_events> promosEventsToday()
+        private bool inThisDay(DateTime d1, Nullable<DateTime> d2)
         {
-            List<promos_events> result = null;
-            using (var DBContext = new dondeeshoyEntities())
+            bool bandera = false;
+            DateTime today = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
+            if (d1 != null && d2 == null)
             {
-                try
-                {
-                   
-                    DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.AsEnumerable().Where(pe => String.Format("{0:yyyy/MM/dd}", pe.start_date.Date) == String.Format("{0:yyyy/MM/dd}", DateTime.Now.Date)).ToList();  //pe => pe.start_date.Date == DateTime.Today.Date pe => System.Data.Entity.Core.Objects.EntityFunctions.TruncateTime(pe.start_date.Date) == DateTime.Today.Date
+                DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
+                int result = DateTime.Compare(date1, today);
+                bandera = (result <= 0);
+            }
+            else
+            {
+                DateTime d3 = d2.HasValue ? d2.Value : d2.GetValueOrDefault();
+                DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
+                DateTime date2 = new DateTime(d3.Year, d3.Month, d3.Day, 0, 0, 0);
+                int result1 = DateTime.Compare(date1, today);
+                int result2 = DateTime.Compare(date2, today);
+                bandera = (result1 <= 0 && result2 >= 0);
 
-                }
-                catch (Exception ex)
+            }
+
+            return bandera;
+        }
+
+        private bool inThisWeek(DateTime d1, Nullable<DateTime> d2)
+        {
+            bool bandera = false;
+            DateTime today = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
+            if (d1 != null && d2 == null)
+            {
+                DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
+                int result = DateTime.Compare(date1, today);
+                if (result <= 0)
                 {
-                    Console.WriteLine(ex);
+                    bandera = true;
+                }
+                else
+                {
+                    int dayWeekToday = (int)today.DayOfWeek;
+                    DateTime finalDayWeek = today.AddDays(6 - dayWeekToday);
+                    int result1 = DateTime.Compare(date1, finalDayWeek);
+                    bandera = (result1 <= 0);
                 }
             }
-            return result;
+            else
+            {
+                DateTime d3 = d2.HasValue ? d2.Value : d2.GetValueOrDefault();
+                DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
+                DateTime date2 = new DateTime(d3.Year, d3.Month, d3.Day, 0, 0, 0);
+                int result1 = DateTime.Compare(date1, today);
+                int result2 = DateTime.Compare(date2, today);
+                bandera = (result1 <= 0 && result2 >= 0);
+
+            }
+
+            return bandera;
         }
 
         private bool inThisMonth(DateTime d1, Nullable<DateTime> d2)
@@ -137,16 +175,19 @@ namespace DataAccessLayer.DAL
             return bandera;
         }
 
-
-        public List<promos_events> promosEventsThisMoth()
+        public IEnumerable<dynamic> promosEventsToday()
         {
-            List<promos_events> result = null;
+            IEnumerable<dynamic> result = null;
             using (var DBContext = new dondeeshoyEntities())
             {
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.AsEnumerable().Where(pe => inThisMonth(pe.start_date, pe.due_date) == true).ToList(); 
+                    result = (from pe in DBContext.promos_events.AsEnumerable()
+                              join lc in DBContext.locals on pe.local equals lc.establishment
+                              join es in DBContext.establishments on lc.establishment equals es.id
+                              where inThisDay(pe.start_date, pe.due_date) == true
+                              select new { promoEvent = new { pe.id, pe.name, pe.start_date, pe.due_date, pe.description, pe.local, pe.imagebase64, pe.is_general }, establishment = new {establishmentId = es.id, establishmentName = es.name, establishmentImage = es.imagebase64 } }).ToList();
                 }
                 catch (Exception ex)
                 {
@@ -156,47 +197,19 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
-        private bool inThisWeek(DateTime d1, Nullable<DateTime> d2)
+        public IEnumerable<dynamic> promosEventsThisWeek()
         {
-            bool bandera = false;
-            DateTime today = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
-                if (d1 != null && d2 == null)
-                {
-                DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
-                int result = DateTime.Compare(date1, today);
-                if (result <= 0)
-                {
-                    bandera = true;
-                }
-                else {
-                    int dayWeekToday = (int)today.DayOfWeek;
-                    DateTime finalDayWeek = today.AddDays(6- dayWeekToday);
-                    int result1 = DateTime.Compare(date1, finalDayWeek);
-                    bandera = (result1 <= 0);
-                }
-            }
-                else {
-                    DateTime d3 = d2.HasValue ? d2.Value : d2.GetValueOrDefault();
-                    DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
-                    DateTime date2 = new DateTime(d3.Year, d3.Month, d3.Day, 0, 0, 0);
-                    int result1 = DateTime.Compare(date1, today);
-                    int result2 = DateTime.Compare(date2, today);
-                    bandera = (result1 <= 0 && result2 >= 0);
-                
-            }
-            
-            return bandera;
-        }
-
-        public List<promos_events> promosEventsThisWeek()
-        {
-            List<promos_events> result = null;
+            IEnumerable<dynamic> result = null;
             using (var DBContext = new dondeeshoyEntities())
             {
                 try
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = DBContext.promos_events.AsEnumerable().Where(pe => inThisWeek(pe.start_date, pe.due_date) == true).ToList();
+                    result = (from pe in DBContext.promos_events.AsEnumerable()
+                              join lc in DBContext.locals on pe.local equals lc.establishment
+                              join es in DBContext.establishments on lc.establishment equals es.id
+                              where inThisWeek(pe.start_date, pe.due_date) == true
+                              select new { promoEvent = new { pe.id, pe.name, pe.start_date, pe.due_date, pe.description, pe.local, pe.imagebase64, pe.is_general }, establishment = new { establishmentId = es.id, establishmentName = es.name, establishmentImage = es.imagebase64 } }).ToList();
                 }
                 catch (Exception ex)
                 {
@@ -205,6 +218,85 @@ namespace DataAccessLayer.DAL
             }
             return result;
         }
+
+        public IEnumerable<dynamic> promosEventsThisMoth()
+        {
+            IEnumerable<dynamic> result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = (from pe in DBContext.promos_events.AsEnumerable()
+                              join lc in DBContext.locals on pe.local equals lc.establishment
+                              join es in DBContext.establishments on lc.establishment equals es.id
+                              where inThisMonth(pe.start_date, pe.due_date) == true
+                              select new { promoEvent = new { pe.id, pe.name, pe.start_date, pe.due_date, pe.description, pe.local, pe.imagebase64, pe.is_general }, establishment= new { establishmentId = es.id, establishmentName = es.name, establishmentImage = es.imagebase64 }}).ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
+        }
+
+        /*public List<promos_events> promosEventsToday()
+        {
+            List<promos_events> result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                   
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = DBContext.promos_events.AsEnumerable().Where(pe => String.Format("{0:yyyy/MM/dd}", pe.start_date.Date) == String.Format("{0:yyyy/MM/dd}", DateTime.Now.Date)).ToList();  //pe => pe.start_date.Date == DateTime.Today.Date pe => System.Data.Entity.Core.Objects.EntityFunctions.TruncateTime(pe.start_date.Date) == DateTime.Today.Date
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
+        }*/
+
+        /*public List<promos_events> promosEventsThisWeek()
+    {
+        List<promos_events> result = null;
+        using (var DBContext = new dondeeshoyEntities())
+        {
+            try
+            {
+                DBContext.Configuration.LazyLoadingEnabled = false;
+                result = DBContext.promos_events.AsEnumerable().Where(pe => inThisWeek(pe.start_date, pe.due_date) == true).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        return result;
+    }*/
+
+        /*public List<promos_events> promosEventsThisMoth()
+       {
+           List<promos_events> result = null;
+           using (var DBContext = new dondeeshoyEntities())
+           {
+               try
+               {
+                   DBContext.Configuration.LazyLoadingEnabled = false;
+                   //DBContext.Configuration.ProxyCreationEnabled = false;
+                   result = DBContext.promos_events.AsEnumerable().Where(pe => inThisMonth(pe.start_date, pe.due_date) == true).ToList(); 
+               }
+               catch (Exception ex)
+               {
+                   Console.WriteLine(ex);
+               }
+           }
+           return result;
+       }*/
 
         public void modifyPromoEvent(promos_events promoEvent) {
             throw new NotImplementedException();
