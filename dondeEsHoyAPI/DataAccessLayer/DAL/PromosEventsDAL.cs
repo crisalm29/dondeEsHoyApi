@@ -184,7 +184,7 @@ namespace DataAccessLayer.DAL
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
                     result = (from pe in DBContext.promos_events.AsEnumerable()
-                              join lc in DBContext.locals on pe.local equals lc.establishment
+                              join lc in DBContext.locals on pe.local equals lc.id
                               join es in DBContext.establishments on lc.establishment equals es.id
                               where inThisDay(pe.start_date, pe.due_date) == true
                               select new { promoEvent = new { pe.id, pe.name, pe.start_date, pe.due_date, pe.description, pe.local, pe.imagebase64, pe.is_general }, establishment = new {establishmentId = es.id, establishmentName = es.name, establishmentImage = es.imagebase64 } }).ToList();
@@ -206,7 +206,7 @@ namespace DataAccessLayer.DAL
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
                     result = (from pe in DBContext.promos_events.AsEnumerable()
-                              join lc in DBContext.locals on pe.local equals lc.establishment
+                              join lc in DBContext.locals on pe.local equals lc.id
                               join es in DBContext.establishments on lc.establishment equals es.id
                               where inThisWeek(pe.start_date, pe.due_date) == true
                               select new { promoEvent = new { pe.id, pe.name, pe.start_date, pe.due_date, pe.description, pe.local, pe.imagebase64, pe.is_general }, establishment = new { establishmentId = es.id, establishmentName = es.name, establishmentImage = es.imagebase64 } }).ToList();
@@ -228,7 +228,7 @@ namespace DataAccessLayer.DAL
                 {
                     DBContext.Configuration.LazyLoadingEnabled = false;
                     result = (from pe in DBContext.promos_events.AsEnumerable()
-                              join lc in DBContext.locals on pe.local equals lc.establishment
+                              join lc in DBContext.locals on pe.local equals lc.id
                               join es in DBContext.establishments on lc.establishment equals es.id
                               where inThisMonth(pe.start_date, pe.due_date) == true
                               select new { promoEvent = new { pe.id, pe.name, pe.start_date, pe.due_date, pe.description, pe.local, pe.imagebase64, pe.is_general }, establishment= new { establishmentId = es.id, establishmentName = es.name, establishmentImage = es.imagebase64 }}).ToList();
