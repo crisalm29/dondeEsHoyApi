@@ -18,6 +18,7 @@ namespace DataAccessLayer.Interfaces
         IEnumerable<dynamic> promosEventsToday();
         IEnumerable<dynamic> promosEventsThisMoth();
         IEnumerable<dynamic> promosEventsThisWeek();
+        IEnumerable<dynamic> promosEventsThisMothByEstablishment(int establishment);
         void modifyPromoEvent(promos_events promoEvent);
     }
 }

@@ -51,4 +51,11 @@ namespace dondeEsHoyAPI.Models
         [Display(Name = "local")]
         public int local { get; set; }
     }
+
+    public class PromosEventsThisMothByEstablishment
+    {
+        [Required]
+        [Display(Name = "establishment")]
+        public int establishment { get; set; }
+    }
 }

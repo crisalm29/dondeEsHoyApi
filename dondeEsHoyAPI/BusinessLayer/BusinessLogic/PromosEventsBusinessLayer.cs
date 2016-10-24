@@ -58,7 +58,6 @@ namespace BusinessLayer.BusinessLogic
             return promosEventsDAL.promosEventsThisMoth();
         }
 
-
         public void modifyPromoEvent(string name, int local, string start_date, string due_date, string description, string imagebase64, int is_general)
         {
             promos_events newPromoEvent = new promos_events()
@@ -73,6 +72,11 @@ namespace BusinessLayer.BusinessLogic
             };
 
             promosEventsDAL.modifyPromoEvent(newPromoEvent);
+        }
+
+        public IEnumerable<dynamic> promosEventsThisMothByEstablishment(int establishment)
+        {
+            return promosEventsDAL.promosEventsThisMothByEstablishment(establishment);
         }
     }
 }
