@@ -184,6 +184,26 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // POST: api/PromosEvents/validPromosEventsByEstablishment
+        [Route("PromosEvents/validPromosEventsByEstablishment")]
+        public HttpResponseMessage promosEventsThisMothByEstablishment(ValidPromosEventsByEstablishment model)
+        {
+            bool valido = false;
+            string message = "No se obtuvo la info.";
+            PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
+            IEnumerable<dynamic> promosEvents = businessObject.validPromosEventsByEstablishment(model.establishment);
+            var result = new { valido = valido, message = message };
+            if (promosEvents != null)
+            {
+                valido = true;
+                message = "Se obtuvo la info.";
+                var result2 = new { valido = valido, message = message, result = promosEvents };
+                return Request.CreateResponse(HttpStatusCode.OK, result2);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
         // GET: api/PromosEvents
         public IEnumerable<string> Get()
         {

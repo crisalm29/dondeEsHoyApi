@@ -78,5 +78,10 @@ namespace BusinessLayer.BusinessLogic
         {
             return promosEventsDAL.promosEventsThisMothByEstablishment(establishment);
         }
+
+        public IEnumerable<dynamic> validPromosEventsByEstablishment(int establishment)
+        {
+            return promosEventsDAL.validPromosEventsByEstablishment(establishment);
+        }
     }
 }

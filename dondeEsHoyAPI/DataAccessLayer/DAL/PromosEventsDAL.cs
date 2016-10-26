@@ -175,6 +175,28 @@ namespace DataAccessLayer.DAL
             return bandera;
         }
 
+        private bool validPromoEvent(DateTime d1, Nullable<DateTime> d2)
+        {
+            bool bandera = false;
+            DateTime today = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
+            if (d1 != null && d2 == null)
+            {
+                    bandera = true;
+            }
+            else
+            {
+                DateTime d3 = d2.HasValue ? d2.Value : d2.GetValueOrDefault();
+                DateTime date1 = new DateTime(d1.Year, d1.Month, d1.Day, 0, 0, 0);
+                DateTime date2 = new DateTime(d3.Year, d3.Month, d3.Day, 0, 0, 0);
+                int result1 = DateTime.Compare(date1, today);
+                int result2 = DateTime.Compare(date2, today);
+                bandera = (result1 <= 0 && result2 >= 0) || (result1 >= 0 && result2 >= 0);
+
+            }
+
+            return bandera;
+        }
+
         public IEnumerable<dynamic> promosEventsToday()
         {
             IEnumerable<dynamic> result = null;
@@ -241,6 +263,55 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
+
+        public void modifyPromoEvent(promos_events promoEvent) {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<dynamic> promosEventsThisMothByEstablishment(int establishment)
+        {
+            IEnumerable<dynamic> result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = (from pe in DBContext.promos_events.AsEnumerable()
+                              join lc in DBContext.locals on pe.local equals lc.id
+                              join es in DBContext.establishments on lc.establishment equals es.id
+                              where inThisMonth(pe.start_date, pe.due_date) == true && es.id == establishment
+                              select new { pe.id, pe.name, pe.start_date, pe.due_date, pe.description, pe.local, pe.imagebase64, pe.is_general }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
+        }
+
+        public IEnumerable<dynamic> validPromosEventsByEstablishment(int establishment)
+        {
+            IEnumerable<dynamic> result = null;
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    DBContext.Configuration.LazyLoadingEnabled = false;
+                    result = (from pe in DBContext.promos_events.AsEnumerable()
+                              join lc in DBContext.locals on pe.local equals lc.id
+                              join es in DBContext.establishments on lc.establishment equals es.id
+                              where validPromoEvent(pe.start_date, pe.due_date) == true && es.id == establishment
+                              select new { pe.id, pe.name, pe.start_date, pe.due_date, pe.description, pe.local, pe.imagebase64, pe.is_general }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+            return result;
+        }
+
         /*public List<promos_events> promosEventsToday()
         {
             List<promos_events> result = null;
@@ -297,31 +368,5 @@ namespace DataAccessLayer.DAL
            }
            return result;
        }*/
-
-        public void modifyPromoEvent(promos_events promoEvent) {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<dynamic> promosEventsThisMothByEstablishment(int establishment)
-        {
-            IEnumerable<dynamic> result = null;
-            using (var DBContext = new dondeeshoyEntities())
-            {
-                try
-                {
-                    DBContext.Configuration.LazyLoadingEnabled = false;
-                    result = (from pe in DBContext.promos_events.AsEnumerable()
-                              join lc in DBContext.locals on pe.local equals lc.id
-                              join es in DBContext.establishments on lc.establishment equals es.id
-                              where inThisMonth(pe.start_date, pe.due_date) == true && es.id == establishment
-                              select new { pe.id, pe.name, pe.start_date, pe.due_date, pe.description, pe.local, pe.imagebase64, pe.is_general }).ToList();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            }
-            return result;
-        }
     }
 }

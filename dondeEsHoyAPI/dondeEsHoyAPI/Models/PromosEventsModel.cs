@@ -58,4 +58,11 @@ namespace dondeEsHoyAPI.Models
         [Display(Name = "establishment")]
         public int establishment { get; set; }
     }
+
+    public class ValidPromosEventsByEstablishment
+    {
+        [Required]
+        [Display(Name = "establishment")]
+        public int establishment { get; set; }
+    }
 }
