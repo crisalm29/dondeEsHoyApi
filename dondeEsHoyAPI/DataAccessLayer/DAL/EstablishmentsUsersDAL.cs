@@ -82,5 +82,24 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
+        public void deleteEstablishmentsUsers(int id)
+        {
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    establishments_users esblishment_user = new establishments_users { id = id };
+                    DBContext.establishments_users.Attach(esblishment_user);
+                    DBContext.establishments_users.Remove(esblishment_user);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
+        }
+
     }
 }

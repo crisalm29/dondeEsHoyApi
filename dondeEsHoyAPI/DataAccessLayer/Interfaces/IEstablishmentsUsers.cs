@@ -14,5 +14,6 @@ namespace DataAccessLayer.Interfaces
         establishments_users establishmentsUsersInfoById(int id);
         establishments_users establishmentsUsersInfoByEstablishmentAccount(int establishment_account);
         List<establishments_users> allEstablishmentsUsersInfoByEstablishment(int establishment);
+        void deleteEstablishmentsUsers(int id);
     }
 }

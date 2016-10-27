@@ -38,5 +38,10 @@ namespace BusinessLayer.BusinessLogic
         {
             return establishmentsUsersDAL.allEstablishmentsUsersInfoByEstablishment(establishment);
         }
+
+        public void deleteEstablishmentsUsers(int id)
+        {
+            establishmentsUsersDAL.deleteEstablishmentsUsers(id);
+        }
     }
 }

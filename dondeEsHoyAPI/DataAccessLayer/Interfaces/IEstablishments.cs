@@ -14,6 +14,7 @@ namespace DataAccessLayer.Interfaces
         establishments establishmentInfoByName(string name);
         List<establishments> allEstablishmentsInfo();
         establishments establishmentByAccount(string email);
-        void modifyEstablishment(establishments user);
+        void modifyEstablishment(establishments establishment);
+        void deleteEstablishment(int id);
     }
 }

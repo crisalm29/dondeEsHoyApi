@@ -57,5 +57,10 @@ namespace BusinessLayer.BusinessLogic
 
             localsDAL.modifyLocal(newLocal);
         }
+
+        public void deleteLocal(int id)
+        {
+            localsDAL.deleteLocal(id);
+        }
     }
 }

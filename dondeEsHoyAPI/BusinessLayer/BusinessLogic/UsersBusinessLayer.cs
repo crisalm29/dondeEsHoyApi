@@ -42,7 +42,6 @@ namespace BusinessLayer.BusinessLogic
             return userDAL.userInfoByEmail(email);
         }
 
-
         public void modifyUser(int id, string email, string password, string name, string lastName, string imagebase64)
         {
             users newUser = new users()

@@ -58,6 +58,16 @@ namespace BusinessLayer.BusinessLogic
             return promosEventsDAL.promosEventsThisMoth();
         }
 
+        public IEnumerable<dynamic> promosEventsThisMothByEstablishment(int establishment)
+        {
+            return promosEventsDAL.promosEventsThisMothByEstablishment(establishment);
+        }
+
+        public IEnumerable<dynamic> validPromosEventsByEstablishment(int establishment)
+        {
+            return promosEventsDAL.validPromosEventsByEstablishment(establishment);
+        }
+
         public void modifyPromoEvent(string name, int local, string start_date, string due_date, string description, string imagebase64, int is_general)
         {
             promos_events newPromoEvent = new promos_events()
@@ -74,14 +84,9 @@ namespace BusinessLayer.BusinessLogic
             promosEventsDAL.modifyPromoEvent(newPromoEvent);
         }
 
-        public IEnumerable<dynamic> promosEventsThisMothByEstablishment(int establishment)
+        public void deletePromoEvent(int id)
         {
-            return promosEventsDAL.promosEventsThisMothByEstablishment(establishment);
-        }
-
-        public IEnumerable<dynamic> validPromosEventsByEstablishment(int establishment)
-        {
-            return promosEventsDAL.validPromosEventsByEstablishment(establishment);
+            promosEventsDAL.deletePromoEvent(id);
         }
     }
 }

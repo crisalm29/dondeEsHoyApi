@@ -105,9 +105,41 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
-        public void modifyEstablishment(establishments user)
+        public void modifyEstablishment(establishments establishment)
         {
-            throw new NotImplementedException();
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    var entity = DBContext.establishments.Find(establishment.id);
+                    DBContext.Entry(entity).CurrentValues.SetValues(establishment);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
+        }
+
+        public void deleteEstablishment(int id)
+        {
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    establishments establishment = new establishments { id = id };
+                    DBContext.establishments.Attach(establishment);
+                    DBContext.establishments.Remove(establishment);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
         }
 
     }

@@ -121,9 +121,9 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
         }
 
-        // POST: api/Users/ddeleteUser
-        [Route("Users/ddeleteUser")]
-        public HttpResponseMessage ddeleteUser(DeleteUserModel model)
+        // POST: api/Users/deleteUser
+        [Route("Users/deleteUser")]
+        public HttpResponseMessage deleteUser(DeleteUserModel model)
         {
             UsersBusinessLayer businessObject = new UsersBusinessLayer();
             bool result = false;

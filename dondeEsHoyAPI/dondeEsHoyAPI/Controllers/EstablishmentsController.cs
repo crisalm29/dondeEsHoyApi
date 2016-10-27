@@ -123,6 +123,64 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // POST: api/Establishments/modifyEstablishment
+        [Route("Establishments/modifyEstablishment")]
+        public HttpResponseMessage modifyEstablishment(ModifyEstablishmentModel model)
+        {
+            EstablishmentsBusinessLayer businessObject = new EstablishmentsBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.modifyEstablishment(model.name, model.establishment_type, model.imagebase64, model.telefono);
+                result = true;
+                message = "Se ha actualizar el establishment correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo actualizar." : "Ha ocurrido un error al guardar el establishment. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al actualizar el establishment.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
+        // POST: api/Establishments/deleteEstablishment
+        [Route("Establishments/deleteEstablishment")]
+        public HttpResponseMessage deleteEstablishment(DeleteEstablishmentModel model)
+        {
+            EstablishmentsBusinessLayer businessObject = new EstablishmentsBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.deleteEstablishment(model.id);
+                result = true;
+                message = "Se ha eliminado el establishment correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo eliminar." : "Ha ocurrido un error al eliminar el establishment. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al eliminar el establishment.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
         // GET: api/Establishments
         public IEnumerable<string> Get()
         {

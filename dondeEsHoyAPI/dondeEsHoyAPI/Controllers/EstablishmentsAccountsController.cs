@@ -96,6 +96,64 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // POST: api/EstablishmentsAccounts/modifyEstablishmentAccount
+        [Route("EstablishmentsAccounts/modifyEstablishmentAccount")]
+        public HttpResponseMessage modifyEstablishmentAccount(ModifyEstablishmentAccountModel model)
+        {
+            EstablishmentsAccountsBusinessLayer businessObject = new EstablishmentsAccountsBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.modifyEstablishmentAccount(model.email, model.password, model.name, model.imagebase64);
+                result = true;
+                message = "Se ha actualizar el establishment account correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo actualizar." : "Ha ocurrido un error al guardar el establishment account. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al actualizar el establishment account.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
+        // POST: api/EstablishmentsAccounts/deleteEstablishmentAccount
+        [Route("EstablishmentsAccounts/deleteEstablishmentAccount")]
+        public HttpResponseMessage deleteEstablishmentAccount(DeleteEstablishmentAccountModel model)
+        {
+            EstablishmentsAccountsBusinessLayer businessObject = new EstablishmentsAccountsBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.deleteEstablishmentAccount(model.id);
+                result = true;
+                message = "Se ha eliminado el establishment account correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo eliminar." : "Ha ocurrido un error al eliminar el establishment account. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al eliminar el establishment account.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
         // GET: api/EstablishmentsAccounts
         public IEnumerable<string> Get()
         {

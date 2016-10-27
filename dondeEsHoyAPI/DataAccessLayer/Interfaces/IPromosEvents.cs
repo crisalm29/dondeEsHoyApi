@@ -21,5 +21,6 @@ namespace DataAccessLayer.Interfaces
         IEnumerable<dynamic> promosEventsThisMothByEstablishment(int establishment);
         IEnumerable<dynamic> validPromosEventsByEstablishment(int establishment);
         void modifyPromoEvent(promos_events promoEvent);
+        void deletePromoEvent(int id);
     }
 }

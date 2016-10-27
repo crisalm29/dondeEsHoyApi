@@ -52,4 +52,30 @@ namespace dondeEsHoyAPI.Models
         [Display(Name = "zone")]
         public string zone { get; set; }
     }
+
+    public class ModifyLocalModel
+    {
+        [Required]
+        [Display(Name = "establishment")]
+        public int establishment { get; set; }
+
+        [Required]
+        [Display(Name = "google_key")]
+        public string google_key { get; set; }
+
+        [Required]
+        [Display(Name = "zone")]
+        public string zone { get; set; }
+
+        [Required]
+        [Display(Name = "telefono")]
+        public string telefono { get; set; }
+    }
+
+    public class DeleteLocalModel
+    {
+        [Required]
+        [Display(Name = "id")]
+        public int id { get; set; }
+    }
 }

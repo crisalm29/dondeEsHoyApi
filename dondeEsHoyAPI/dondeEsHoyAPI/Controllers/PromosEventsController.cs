@@ -204,6 +204,64 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // POST: api/PromosEvents/modifyPromoEvent
+        [Route("PromosEvents/modifyPromoEvent")]
+        public HttpResponseMessage modifyPromoEvent(ModifyPromosEventsModel model)
+        {
+            PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.modifyPromoEvent(model.name,model.local,model.start_date,model.due_date,model.description,model.imagebase64,model.is_general);
+                result = true;
+                message = "Se ha actualizar el promo correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo actualizar." : "Ha ocurrido un error al guardar el promo. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al actualizar el promo.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
+        // POST: api/PromosEvents/deletePromoEvent
+        [Route("PromosEvents/deletePromoEvent")]
+        public HttpResponseMessage deletePromoEvent(DeletePromosEventsModel model)
+        {
+            PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.deletePromoEvent(model.id);
+                result = true;
+                message = "Se ha eliminado el promo correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo eliminar." : "Ha ocurrido un error al eliminar el promo. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al eliminar el promo.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
         // GET: api/PromosEvents
         public IEnumerable<string> Get()
         {

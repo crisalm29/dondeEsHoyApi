@@ -103,7 +103,39 @@ namespace DataAccessLayer.DAL
 
         public void modifyLocal(locals local)
         {
-            throw new NotImplementedException();
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    var entity = DBContext.locals.Find(local.id);
+                    DBContext.Entry(entity).CurrentValues.SetValues(local);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
+        }
+
+        public void deleteLocal(int id)
+        {
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    locals local = new locals { id = id };
+                    DBContext.locals.Attach(local);
+                    DBContext.locals.Remove(local);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
         }
     }
 }

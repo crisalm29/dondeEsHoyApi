@@ -15,5 +15,6 @@ namespace DataAccessLayer.Interfaces
         List<locals> localsInfoByEstablishment(int establishment);
         List<locals> localsInfoByZone(string zone);
         void modifyLocal(locals local);
+        void deleteLocal(int id);
     }
 }

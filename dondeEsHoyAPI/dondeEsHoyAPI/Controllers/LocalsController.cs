@@ -123,6 +123,64 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // POST: api/Locals/modifyLocal
+        [Route("Locals/modifyLocal")]
+        public HttpResponseMessage modifyLocal(ModifyLocalModel model)
+        {
+            LocalsBusinessLayer businessObject = new LocalsBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.modifyLocal(model.establishment, model.google_key, model.zone, model.telefono);
+                result = true;
+                message = "Se ha actualizar el local correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo actualizar." : "Ha ocurrido un error al guardar el local. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al actualizar el local.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
+        // POST: api/Locals/deleteLocal
+        [Route("Locals/deleteLocal")]
+        public HttpResponseMessage deleteLocal(DeleteLocalModel model)
+        {
+            LocalsBusinessLayer businessObject = new LocalsBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.deleteLocal(model.id);
+                result = true;
+                message = "Se ha eliminado el local correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo eliminar." : "Ha ocurrido un error al eliminar el local. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al eliminar el local.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
         // GET: api/Locals
         public IEnumerable<string> Get()
         {

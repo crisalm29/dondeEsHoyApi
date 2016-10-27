@@ -140,6 +140,35 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
         }
 
+        // POST: api/EstablishmentsUsers/deleteEstablishmentsUsers
+        [Route("EstablishmentsUsers/deleteEstablishmentsUsers")]
+        public HttpResponseMessage deleteEstablishmentsUsers(DeleteEstablishmentsUserslModel model)
+        {
+            EstablishmentsUsersBusinessLayer businessObject = new EstablishmentsUsersBusinessLayer();
+            bool result = false;
+            int resultCode = 0;
+            string message;
+            try
+            {
+                businessObject.deleteEstablishmentsUsers(model.id);
+                result = true;
+                message = "Se ha eliminado la relación user establishmennt correctamente.";
+                resultCode = 1;
+            }
+            catch (DbUpdateException ex)
+            {
+                message = (ex.HResult == -2146233087) ? "No se pudo eliminar." : "Ha ocurrido un error al eliminar la relación user establishmennt. Error code:" + ex.HResult;
+                resultCode = -1;
+                Console.WriteLine(ex);
+            }
+            catch (Exception)
+            {
+                message = "Error desconocido al eliminar la relación user establishmennt.";
+                resultCode = -2;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
+        }
+
         // GET: api/EstablishmentsUsers
         public IEnumerable<string> Get()
         {

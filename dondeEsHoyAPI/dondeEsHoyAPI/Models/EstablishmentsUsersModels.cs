@@ -49,4 +49,11 @@ namespace dondeEsHoyAPI.Models
         public RegisterEstablishmentAccountModel establishment_account { get; set; }
     }
 
+    public class DeleteEstablishmentsUserslModel
+    {
+        [Required]
+        [Display(Name = "id")]
+        public int id { get; set; }
+    }
+
 }

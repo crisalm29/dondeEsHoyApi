@@ -61,5 +61,10 @@ namespace BusinessLayer.BusinessLogic
 
             establishmentDAL.modifyEstablishment(newEstablishment);
         }
+
+        public void deleteEstablishment(int id)
+        {
+            establishmentDAL.deleteEstablishment(id);
+        }
     }
 }

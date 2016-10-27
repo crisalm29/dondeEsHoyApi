@@ -84,7 +84,39 @@ namespace DataAccessLayer.DAL
 
         public void modifyEstablishmentAccount(establishments_accounts establishment_account)
         {
-            throw new NotImplementedException();
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    var entity = DBContext.establishments_accounts.Find(establishment_account.id);
+                    DBContext.Entry(entity).CurrentValues.SetValues(establishment_account);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
+        }
+
+        public void deleteEstablishmentAccount(int id)
+        {
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    establishments_accounts establishmentAccount = new establishments_accounts { id = id };
+                    DBContext.establishments_accounts.Attach(establishmentAccount);
+                    DBContext.establishments_accounts.Remove(establishmentAccount);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
         }
     }
 }

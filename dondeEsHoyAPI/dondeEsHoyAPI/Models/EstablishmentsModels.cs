@@ -45,4 +45,30 @@ namespace dondeEsHoyAPI.Models
         [Display(Name = "email")]
         public string email { get; set; }
         }
+
+    public class ModifyEstablishmentModel
+    {
+        [Required]
+        [Display(Name = "name")]
+        public string name { get; set; }
+
+        [Required]
+        [Display(Name = "establishment_type")]
+        public int establishment_type { get; set; }
+
+        [Required]
+        [Display(Name = "imagebase64")]
+        public string imagebase64 { get; set; }
+
+        [Required]
+        [Display(Name = "telefono")]
+        public string telefono { get; set; }
+    }
+
+    public class DeleteEstablishmentModel
+    {
+        [Required]
+        [Display(Name = "id")]
+        public int id { get; set; }
+    }
 }

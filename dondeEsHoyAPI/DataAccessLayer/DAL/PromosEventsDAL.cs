@@ -263,11 +263,6 @@ namespace DataAccessLayer.DAL
             return result;
         }
 
-
-        public void modifyPromoEvent(promos_events promoEvent) {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<dynamic> promosEventsThisMothByEstablishment(int establishment)
         {
             IEnumerable<dynamic> result = null;
@@ -310,6 +305,43 @@ namespace DataAccessLayer.DAL
                 }
             }
             return result;
+        }
+
+        public void modifyPromoEvent(promos_events promoEvent)
+        {
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    var entity = DBContext.promos_events.Find(promoEvent.id);
+                    DBContext.Entry(entity).CurrentValues.SetValues(promoEvent);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
+        }
+
+        public void deletePromoEvent(int id)
+        {
+            using (var DBContext = new dondeeshoyEntities())
+            {
+                try
+                {
+                    promos_events promoEvent = new promos_events { id = id };
+                    DBContext.promos_events.Attach(promoEvent);
+                    DBContext.promos_events.Remove(promoEvent);
+                    DBContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw (ex);
+                }
+            }
         }
 
         /*public List<promos_events> promosEventsToday()
