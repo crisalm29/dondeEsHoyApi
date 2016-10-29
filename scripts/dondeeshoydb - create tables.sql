@@ -10,7 +10,7 @@ CREATE TABLE establishments (
      id MEDIUMINT NOT NULL AUTO_INCREMENT,
      name CHAR(45) UNIQUE NOT NULL,
      establishment_type MEDIUMINT,
-	 imagebase64 text,
+	 imagebase64 longtext,
 	 telefono CHAR(20),
      FOREIGN KEY (establishment_type) references establishments_type(id),
      PRIMARY KEY (id)
@@ -24,7 +24,7 @@ CREATE TABLE establishments_accounts (
 	 lastName CHAR(45) NOT NULL,
      password CHAR(45) NOT NULL,
      email CHAR(50) UNIQUE NOT NULL,
-	 imagebase64 text,
+	 imagebase64 longtext,
      PRIMARY KEY (id)
 );
 
@@ -65,7 +65,7 @@ CREATE TABLE promos_events (
      due_date datetime,
      description TEXT NOT NULL,
      local MEDIUMINT NOT NULL,
-     imagebase64 text ,
+     imagebase64 longtext ,
 	 is_general MEDIUMINT,
      FOREIGN KEY (local) references locals(id),
      PRIMARY KEY (id)
@@ -79,7 +79,7 @@ CREATE TABLE users (
      password CHAR(45) NOT NULL,
      email CHAR(45) UNIQUE NOT NULL,
 	 lastName CHAR(45) NOT NULL,
-	 imagebase64 text ,
+	 imagebase64 longtext ,
      PRIMARY KEY (id)
 );
 

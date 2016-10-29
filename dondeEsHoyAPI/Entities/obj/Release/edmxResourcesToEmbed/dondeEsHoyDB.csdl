@@ -7,7 +7,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="establishment_type" Type="Int32" />
-    <Property Name="imagebase64" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="imagebase64" Type="String" MaxLength="1999999999" FixedLength="false" Unicode="false" />
     <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="establishments_type" Relationship="Self.establishments_ibfk_1" FromRole="establishments" ToRole="establishments_type" />
     <NavigationProperty Name="locals" Relationship="Self.locals_ibfk_1" FromRole="establishments" ToRole="locals" />
@@ -23,7 +23,7 @@
     <Property Name="lastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="imagebase64" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="imagebase64" Type="String" MaxLength="1999999999" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="establishments_accounts_logs" Relationship="Self.establishments_accounts_logs_ibfk_1" FromRole="establishments_accounts" ToRole="establishments_accounts_logs" />
     <NavigationProperty Name="establishments_users" Relationship="dondeeshoyModel.establishments_users_ibfk_2" FromRole="establishments_accounts" ToRole="establishments_users" />
   </EntityType>
@@ -68,7 +68,7 @@
     <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="local" Type="Int32" Nullable="false" />
     <Property Name="is_general" Type="Int32" />
-    <Property Name="imagebase64" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="imagebase64" Type="String" MaxLength="1999999999" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="locals" Relationship="dondeeshoyModel.promos_events_ibfk_1" FromRole="promos_events" ToRole="locals" />
   </EntityType>
   <EntityType Name="users">
@@ -80,7 +80,7 @@
     <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="lastName" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="imagebase64" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="imagebase64" Type="String" MaxLength="1999999999" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="users_favorites_establishments" Relationship="Self.users_favorites_establishments_ibfk_2" FromRole="users" ToRole="users_favorites_establishments" />
   </EntityType>
   <EntityType Name="users_favorites_establishments">

@@ -7,7 +7,7 @@
     <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="establishment_type" Type="mediumint" />
-    <Property Name="imagebase64" Type="text" />
+    <Property Name="imagebase64" Type="longtext" />
     <Property Name="telefono" Type="char" MaxLength="20" />
   </EntityType>
   <EntityType Name="establishments_accounts">
@@ -19,7 +19,7 @@
     <Property Name="lastName" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="password" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="email" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="imagebase64" Type="text" />
+    <Property Name="imagebase64" Type="longtext" />
   </EntityType>
   <EntityType Name="establishments_accounts_logs">
     <Key>
@@ -65,7 +65,7 @@
     <Property Name="due_date" Type="datetime" Precision="0" Nullable="true" />
     <Property Name="description" Type="text" Nullable="false" />
     <Property Name="local" Type="mediumint" Nullable="false" />
-    <Property Name="imagebase64" Type="text" />
+    <Property Name="imagebase64" Type="longtext" />
     <Property Name="is_general" Type="mediumint" />
   </EntityType>
   <EntityType Name="users">
@@ -77,7 +77,7 @@
     <Property Name="password" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="email" Type="char" MaxLength="45" Nullable="false" />
     <Property Name="lastName" Type="char" MaxLength="45" Nullable="false" />
-    <Property Name="imagebase64" Type="text" />
+    <Property Name="imagebase64" Type="longtext" />
   </EntityType>
   <EntityType Name="users_favorites_establishments">
     <Key>
