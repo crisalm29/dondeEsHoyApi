@@ -140,9 +140,9 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
         }
 
-        // POST: api/EstablishmentsUsers/deleteEstablishmentsUsers
-        [Route("EstablishmentsUsers/deleteEstablishmentsUsers")]
-        public HttpResponseMessage deleteEstablishmentsUsers(DeleteEstablishmentsUserslModel model)
+        // POST: api/EstablishmentsUsers/removeEstablishmentsUsers
+        [Route("EstablishmentsUsers/removeEstablishmentsUsers")]
+        public HttpResponseMessage removeEstablishmentsUsers(DeleteEstablishmentsUserslModel model)
         {
             EstablishmentsUsersBusinessLayer businessObject = new EstablishmentsUsersBusinessLayer();
             bool result = false;

@@ -152,9 +152,9 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
         }
 
-        // POST: api/Locals/deleteLocal
-        [Route("Locals/deleteLocal")]
-        public HttpResponseMessage deleteLocal(DeleteLocalModel model)
+        // POST: api/Locals/removeLocal
+        [Route("Locals/removeLocal")]
+        public HttpResponseMessage removeLocal(DeleteLocalModel model)
         {
             LocalsBusinessLayer businessObject = new LocalsBusinessLayer();
             bool result = false;

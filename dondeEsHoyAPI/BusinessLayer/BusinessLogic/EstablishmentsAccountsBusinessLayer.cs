@@ -13,7 +13,7 @@ namespace BusinessLayer.BusinessLogic
     {
         EstablishmentsAccountsDAL establishmentsAccountsDAL = new EstablishmentsAccountsDAL();
 
-        public bool login(string email, string password)
+        public establishments_accounts login(string email, string password)
         {
             return establishmentsAccountsDAL.login(email, password);
         }

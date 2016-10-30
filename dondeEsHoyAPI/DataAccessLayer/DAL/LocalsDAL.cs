@@ -125,6 +125,12 @@ namespace DataAccessLayer.DAL
             {
                 try
                 {
+                    List<promos_events> promosEvents = DBContext.promos_events.Where(pe => pe.local == id).ToList();
+                    foreach (var m in promosEvents)
+                    {
+                        DBContext.promos_events.Remove(m);
+                    }
+                    DBContext.SaveChanges();
                     locals local = new locals { id = id };
                     DBContext.locals.Attach(local);
                     DBContext.locals.Remove(local);

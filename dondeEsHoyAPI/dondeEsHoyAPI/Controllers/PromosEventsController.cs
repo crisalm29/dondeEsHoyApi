@@ -233,9 +233,9 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
         }
 
-        // POST: api/PromosEvents/deletePromoEvent
-        [Route("PromosEvents/deletePromoEvent")]
-        public HttpResponseMessage deletePromoEvent(DeletePromosEventsModel model)
+        // POST: api/PromosEvents/removePromoEvent
+        [Route("PromosEvents/removePromoEvent")]
+        public HttpResponseMessage removePromoEvent(DeletePromosEventsModel model)
         {
             PromosEventsBusinessLayer businessObject = new PromosEventsBusinessLayer();
             bool result = false;

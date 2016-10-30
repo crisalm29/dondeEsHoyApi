@@ -20,10 +20,14 @@ namespace dondeEsHoyAPI.Controllers
         public HttpResponseMessage login(LoginEstablishmentAccountModel model)
         {
             EstablishmentsAccountsBusinessLayer businessObject = new EstablishmentsAccountsBusinessLayer();
-            bool result = businessObject.login(model.email, model.password);
-            string message = (result) ? "Se ha iniciado sesion correctamente." : "Usuario o contraseña invalido.";
-
-            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result });
+            establishments_accounts result = businessObject.login(model.email, model.password);
+            string message = (result!=null) ? "Se ha iniciado sesion correctamente." : "Usuario o contraseña invalido.";
+            if (result != null) {
+                EstablishmentsUsersBusinessLayer aux = new EstablishmentsUsersBusinessLayer();
+                establishments_users eu = aux.establishmentsUsersInfoByEstablishmentAccount(result.id);
+                return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = new { login = (result != null), establishment = eu.establishment } });
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = new {login= (result!=null)} });
         }
 
 
@@ -125,9 +129,9 @@ namespace dondeEsHoyAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { message = message, result = result, resultCode = resultCode });
         }
 
-        // POST: api/EstablishmentsAccounts/deleteEstablishmentAccount
-        [Route("EstablishmentsAccounts/deleteEstablishmentAccount")]
-        public HttpResponseMessage deleteEstablishmentAccount(DeleteEstablishmentAccountModel model)
+        // POST: api/EstablishmentsAccounts/removeEstablishmentAccount
+        [Route("EstablishmentsAccounts/removeEstablishmentAccount")]
+        public HttpResponseMessage removeEstablishmentAccount(DeleteEstablishmentAccountModel model)
         {
             EstablishmentsAccountsBusinessLayer businessObject = new EstablishmentsAccountsBusinessLayer();
             bool result = false;
