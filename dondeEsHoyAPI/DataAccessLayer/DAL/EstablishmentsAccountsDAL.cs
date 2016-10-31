@@ -106,6 +106,12 @@ namespace DataAccessLayer.DAL
             {
                 try
                 {
+                    List<establishments_users> establishments_users = DBContext.establishments_users.Where(ea => ea.establishment_account == id).ToList();
+                    foreach (var m in establishments_users)
+                    {
+                        DBContext.establishments_users.Remove(m);
+                    }
+                    DBContext.SaveChanges();
                     establishments_accounts establishmentAccount = new establishments_accounts { id = id };
                     DBContext.establishments_accounts.Attach(establishmentAccount);
                     DBContext.establishments_accounts.Remove(establishmentAccount);
