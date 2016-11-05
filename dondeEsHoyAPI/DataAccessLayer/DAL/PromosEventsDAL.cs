@@ -121,8 +121,8 @@ namespace DataAccessLayer.DAL
                 }
                 else
                 {
-                    int dayWeekToday = (int)today.DayOfWeek;
-                    DateTime finalDayWeek = today.AddDays(6 - dayWeekToday);
+                    int dayWeekToday = (int)today.DayOfWeek == 0? 7: (int)today.DayOfWeek;
+                    DateTime finalDayWeek = today.AddDays(7 - dayWeekToday);
                     int result1 = DateTime.Compare(date1, finalDayWeek);
                     bandera = (result1 <= 0);
                 }
@@ -134,7 +134,10 @@ namespace DataAccessLayer.DAL
                 DateTime date2 = new DateTime(d3.Year, d3.Month, d3.Day, 0, 0, 0);
                 int result1 = DateTime.Compare(date1, today);
                 int result2 = DateTime.Compare(date2, today);
-                bandera = (result1 <= 0 && result2 >= 0);
+                int dayWeekToday = (int)today.DayOfWeek == 0 ? 7 : (int)today.DayOfWeek;
+                DateTime finalDayWeek = today.AddDays(7 - dayWeekToday);
+                int result3 = DateTime.Compare(date1, finalDayWeek);
+                bandera = (result1 <= 0 && result2 >= 0) || (result3 <= 0);
 
             }
 
@@ -168,7 +171,7 @@ namespace DataAccessLayer.DAL
                 DateTime date2 = new DateTime(d3.Year, d3.Month, d3.Day, 0, 0, 0);
                 int result1 = DateTime.Compare(date1, today);
                 int result2 = DateTime.Compare(date2, today);
-                bandera = (result1 <= 0 && result2 >= 0);
+                bandera = (result1 <= 0 && result2 >= 0) || today.Month==date1.Month;
 
             }
 
