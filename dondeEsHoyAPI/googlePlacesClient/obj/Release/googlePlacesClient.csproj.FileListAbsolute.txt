@@ -1,7 +1,0 @@
-C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\bin\Release\googlePlacesClient.dll
-C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\bin\Release\googlePlacesClient.pdb
-C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\bin\Release\Newtonsoft.Json.dll
-C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\bin\Release\Newtonsoft.Json.xml
-C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\obj\Release\googlePlacesClient.csprojResolveAssemblyReference.cache
-C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\obj\Release\googlePlacesClient.dll
-C:\Users\kevin\Desktop\proyectoGlobales\dondeEsHoyApi\dondeEsHoyAPI\googlePlacesClient\obj\Release\googlePlacesClient.pdb
