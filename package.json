@@ -3,7 +3,12 @@
 	"main": "server.js",
 	"dependencies": {
 		"body-parser": "~1.0.1",
+		"chai": "^4.0.2",
 		"express": "~4.0.0",
-		"mysql": "^2.13.0"
+		"mysql": "^2.13.0",
+		"winston": "^2.3.1"
+	},
+	"scripts": {
+		"test": "mocha -- unitTest/*.test.js"
 	}
 }
