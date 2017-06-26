@@ -7,7 +7,6 @@ var express = require('express');
 
 var app = express();
 
-var mysql     =    require('mysql');
 
 var bodyParser =  require('body-parser');
 
@@ -23,15 +22,6 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 
-
-var pool      =    mysql.createPool({
-    connectionLimit : 100, //important
-    host     : 'sql10.freemysqlhosting.net',
-    user     : 'sql10181811',
-    password : '2qAGpxXHfi',
-    database : 'sql10181811',
-    debug    :  false
-});
 
 
 function handle_database(req,res) {
