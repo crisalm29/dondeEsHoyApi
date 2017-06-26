@@ -9,7 +9,7 @@
 		"winston": "^2.3.1"
 	},
 	"scripts": {
-		"test": "mocha -- unitTest/*.test.js"
+		"test": "mocha -- unitTest/*/*.test.js"
 	},
 	"devDependencies": {
 		"sinon": "^2.3.5"

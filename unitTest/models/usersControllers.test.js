@@ -3,9 +3,9 @@
 var assert = require('assert');
 var sinon = require('sinon');
 
-var usersController = require('../app/models/usersController.js');
-var dataAccess = require('../app/common/dataAccess.js');
-var logger = require('../app/common/logger.js');
+var usersController = require('../../app/models/usersController.js');
+var dataAccess = require('../../app/common/dataAccess.js');
+var logger = require('../../app/common/logger.js');
 
 describe('User controller unit testing', function(){
 	it('Register user successfully', function(){

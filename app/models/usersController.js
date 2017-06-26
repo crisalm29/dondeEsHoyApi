@@ -49,8 +49,6 @@ var usersController = {
 			else{
 				logger.error('Error adding new user', result);
 			}
-			
-
 
 		}else{
 			logger.error('Missing parameter', result);
@@ -58,7 +56,10 @@ var usersController = {
 
 		return result;
 
+	},
 
+	login: function(loginData){
+		
 	}
 }
 
