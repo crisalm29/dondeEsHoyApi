@@ -4,6 +4,7 @@
 // Call the packages we need
 
 var express = require('express');
+var usersController = require('./app/models/usersController.js');
 
 var app = express();
 
@@ -62,6 +63,13 @@ router.get('/', function(req, res){
     handle_database(req,res);
 });
 
+
+router.route('/users').post(function(req, res){
+  var userData = req.body;
+  var result = usersController.registerUser(userData);
+  res.json(result);
+
+});
 
 app.use('/api', router);
 

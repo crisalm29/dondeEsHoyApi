@@ -102,4 +102,17 @@ describe('User controller unit testing', function(){
 		loggerMock.verify();
 	});
 
+	it('Login test successfully', function(){
+		var loginData = {
+			email: "test@dondeeshoy.com",
+			password: "testpwd"
+		};
+
+		var stub = sinon.stub(dataAccess, "login").callsFake(function(loginData){ return {success: true, msg: ""}});
+
+		
+
+		 
+	});
+
 });

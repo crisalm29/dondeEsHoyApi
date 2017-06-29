@@ -42,6 +42,7 @@ var usersController = {
 
 			userData.password = crypto.createHash('sha256').update(userData.password).digest('hex');
 			result = dataAccess.insertUser(userData);
+			console.log(result);
 			if(result.success){
 				logger.info('User registered', userData.email);
 
@@ -59,7 +60,34 @@ var usersController = {
 	},
 
 	login: function(loginData){
+
+		var result = null;
+
+		if(!loginData.email){
+			result = {
+				success: false,
+				msg: "Missing parameter: email"
+			};	
+		}
+
 		
+		if(!loginData.password){
+			result = {
+				success: false,
+				msg: "Missing parameter: password"
+			};	
+		}
+		if(!result){
+			userData.password = crypto.createHash('sha256').update(userData.password).digest('hex');
+			result = dataAccess.login(loginData);
+
+		}else{
+			logger.error('Missing parameter', result);
+		}
+
+		return result;
+
+
 	}
 }
 
