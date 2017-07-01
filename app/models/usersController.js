@@ -44,6 +44,7 @@ var usersController = {
 		if(!result){
 
 			userData.password = crypto.createHash('sha256').update(userData.password).digest('hex');
+			console.log("register passsword: " + userData.password);
 			dataAccess.insertUser(userData, callback);
 				
 		}else{
@@ -53,7 +54,7 @@ var usersController = {
 
 	},
 
-	login: function(loginData){
+	login: function(loginData, callback){
 
 		var result = null;
 
@@ -72,14 +73,14 @@ var usersController = {
 			};	
 		}
 		if(!result){
-			userData.password = crypto.createHash('sha256').update(userData.password).digest('hex');
-			result = dataAccess.login(loginData);
+			loginData.password = crypto.createHash('sha256').update(loginData.password).digest('hex');
+			console.log("login password: " + loginData.password); 
+			result = dataAccess.login(loginData,callback);
 
 		}else{
 			logger.error('Missing parameter', result);
+			callback(null,result);
 		}
-
-		return result;
 
 
 	}

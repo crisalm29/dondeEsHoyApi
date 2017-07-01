@@ -66,7 +66,7 @@ router.get('/', function(req, res){
 
 router.route('/users').post(function(req, res){
   var userData = req.body;
-  var obj = usersController.registerUser(userData, function(result, err){
+  usersController.registerUser(userData, function(result, err){
     if(err){
       res.json({data: err})
       return err;
@@ -76,6 +76,17 @@ router.route('/users').post(function(req, res){
     }
   });
 
+});
+
+router.route('/login').post(function(req,res){
+  var loginData = req.body;
+  usersController.login(loginData, function(result, err){
+    if(err){
+      res.json(err);
+    }else{
+      res.json(result);
+    }
+  });
 });
 
 app.use('/api', router);

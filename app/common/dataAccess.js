@@ -50,25 +50,28 @@ var dataAccess = {
 
 	},
 
-	login: function(loginData){
-		return sqlConnection().getConnection(function(err, conn){
+	login: function(loginData, callback){
+		sqlConnection().getConnection(function(err, conn){
 			if (err) {
-	          return {"success" : false, "status" : "Error in connection database"};
-	        }  
+				callback(null, {success: false, err: err.code});
+	        }else{
 
-	        var sql = 'SELECT TOP 1 FROM users where email = ? AND password = ?';
+	        	var sql = 'SELECT email FROM users where email = ? AND password = ?';
 
-	        return onn.query(sql, [mysql.escape(loginData.email), mysql.escape(loginData.password)], function(err, result){
-	        	if (err) {
-	    			logger.error('Error getting user in database', err)
-		          	return {"success" : false, "status" : "Error adding user to db"};
-		          
-		        }else{
-		        	logger.info('Get user successfully');
-		        	return {"success": true, "result": result};
-		        }
-	        });
-
+		        conn.query(sql, [loginData.email, loginData.password], function(err, result){
+		        	if (err) {
+		    			logger.error('Error getting user in database', err);
+		    			console.log(err);
+		    			callback(null, {success: false, err: err.code});
+			          
+			        }else{
+			        	logger.info('Get user successfully');
+			        	console.log(result);
+			        	callback({success: true, result: result});
+			        	return {"success": true, "result": result};
+			        }
+		        });
+	    	}
 		});
 	}
 };
