@@ -8,7 +8,7 @@ var logger = require('../common/logger.js');
 var crypto = require("crypto");
 
 var usersController = {
-	registerUser: function (userData){
+	registerUser: function (userData, callback){
 		var result = null;
 		if(!userData.name){
 			result = {
@@ -38,24 +38,18 @@ var usersController = {
 				msg: "Missing parameter: lastName"
 			};	
 		}
+		if(!userData.imagebase64){
+			userData.imagebase64 = "";
+		}
 		if(!result){
 
 			userData.password = crypto.createHash('sha256').update(userData.password).digest('hex');
-			result = dataAccess.insertUser(userData);
-			console.log(result);
-			if(result.success){
-				logger.info('User registered', userData.email);
-
-			}
-			else{
-				logger.error('Error adding new user', result);
-			}
-
+			dataAccess.insertUser(userData, callback);
+				
 		}else{
+			callback(null, result);
 			logger.error('Missing parameter', result);
 		}
-
-		return result;
 
 	},
 

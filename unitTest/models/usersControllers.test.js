@@ -19,15 +19,19 @@ describe('User controller unit testing', function(){
 		};
 
 
-		var stub = sinon.stub(dataAccess, "insertUser").callsFake(function(userData){ return {success: true, msg: ""}});
+		var stub = sinon.stub(dataAccess, "insertUser").callsFake(function(userData, callback){
+			callback({success: true},null);
+		 });
 
-		var loggerMock = sinon.mock(logger);
-		loggerMock.expects('info').withArgs('User registered', 'test@dondeeshoy.com').exactly(1);
+		//var loggerMock = sinon.mock(logger);
+		//loggerMock.expects('info').withArgs('User registered', 'test@dondeeshoy.com').exactly(1);
 
-		result = usersController.registerUser(userData);
+		result = usersController.registerUser(userData,function(res, err){
+			console.log(res);
+			assert(res.success, 'Result got an error');
+		});
 		
-		assert(result.success, 'Result got an error');
-		loggerMock.verify();
+		//loggerMock.verify();
 
 	});
 
@@ -41,9 +45,10 @@ describe('User controller unit testing', function(){
 
 		var loggerMock = sinon.mock(logger);
 		loggerMock.expects('error').withArgs('Missing parameter', {success: false, msg: "Missing parameter: name"}).exactly(1);
-		result = usersController.registerUser(userData);
+		usersController.registerUser(userData,function(res, err){
+			assert(err, 'Error not raised');
+		});
 
-		assert(!result.success, 'Error not raised');
 		
 		loggerMock.verify();
 	});
@@ -59,9 +64,10 @@ describe('User controller unit testing', function(){
 
 		var loggerMock = sinon.mock(logger);
 		loggerMock.expects('error').withArgs('Missing parameter', {success: false, msg: "Missing parameter: email"}).exactly(1);
-		result = usersController.registerUser(userData);
+		usersController.registerUser(userData,function(res, err){
+			assert(err, 'Error not raised');
+		});
 
-		assert(!result.success, 'Error not raised');
 		
 		loggerMock.verify();
 	});
@@ -77,9 +83,10 @@ describe('User controller unit testing', function(){
 
 		var loggerMock = sinon.mock(logger);
 		loggerMock.expects('error').withArgs('Missing parameter', {success: false, msg: "Missing parameter: password"}).exactly(1);
-		result = usersController.registerUser(userData);
+		result = usersController.registerUser(userData, function(res, err){
+			assert(err, 'Error not raised');
+		});
 
-		assert(!result.success, 'Error not raised');
 		
 		loggerMock.verify();
 	});
@@ -95,9 +102,10 @@ describe('User controller unit testing', function(){
 
 		var loggerMock = sinon.mock(logger);
 		loggerMock.expects('error').withArgs('Missing parameter', {success: false, msg: "Missing parameter: lastName"}).exactly(1);
-		result = usersController.registerUser(userData);
+		result = usersController.registerUser(userData, function(res, err){
+			assert(err, 'Error not raised');
+		});
 
-		assert(!result.success, 'Error not raised');
 		
 		loggerMock.verify();
 	});

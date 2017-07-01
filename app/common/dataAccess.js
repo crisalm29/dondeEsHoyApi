@@ -21,35 +21,32 @@ function sqlConnection(){
 
 
 var dataAccess = {
-	insertUser:  function(userData){
-		var result = null;
-		sqlConnection().getConnection(function(err,conn){
+	insertUser:  function(userData, callback){
+		return sqlConnection().getConnection(function(err,conn){
 	        if (err) {
-	        	logger.error('Error in connection database', err)
-	          	result = {"success" : false, "status" : "Error in connection database"};
-	          	return;
+	        	logger.error('Error in connection database', err);
+	        	callback(null, {success:false, error: err.code});
 	        	
-	        }
+	        }else{
 	        
-	    	var sql = "INSERT INTO users (name, password, email, lastName, imagebase64) VALUES ?";
+		    	var sql = "INSERT INTO users SET ?";
+		    	query = conn.query(sql, userData, function (err, result){
+		    		if (err) {
+		    			logger.error('Error inserting user in database', err);
+		    			console.log(err.code);
+		    			console.log(err);
+	        			callback(null, {success:false, error: err.code});
+			          
+			        }else{
+			        	result = {success: true, msg: "User resgistered correctly." , user: userData.email};
+		        		logger.info('User added correctly', result);
+			        	console.log("User registered: " + userData.email);  
+			        	callback(result, null); 
+			        }
 
-	    	conn.query(sql, [[userData.name, userData.password, userData.email, userData.lastName, userData.image]], function (err, result){
-	    		if (err) {
-	    			logger.error('Error inserting user in database', err)
-		          	result = {"success" : false, "status" : "Error adding user to db"};
-		          	return;
-		          
-		        }else{
-	        		logger.info('User added correctly', result);
-		        	result = {success: true, msg: "User resgistered correctly." , obj: result};
-		        	return;
-		        }
-
-		        console.log("User registered: " + userData.email);   
-	    	});
-
+		    	});
+	    	}
 	  	});
-	  	return result;
 
 	},
 

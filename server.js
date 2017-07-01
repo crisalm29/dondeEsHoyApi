@@ -66,8 +66,15 @@ router.get('/', function(req, res){
 
 router.route('/users').post(function(req, res){
   var userData = req.body;
-  var result = usersController.registerUser(userData);
-  res.json(result);
+  var obj = usersController.registerUser(userData, function(result, err){
+    if(err){
+      res.json({data: err})
+      return err;
+    }else{
+      res.json({data: result});
+      return result;
+    }
+  });
 
 });
 
